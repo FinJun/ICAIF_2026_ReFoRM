@@ -19,7 +19,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/libertinus-serif-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/libertinus-serif-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=main-results-1">
 <script src="app.js?v=3" defer></script>
 </head>
 <body>
@@ -247,9 +247,44 @@
   </section>
 
   <section class="section" id="results" aria-labelledby="results-h">
-    <h2 class="section-title" id="results-h">Results</h2>
-<p class="prose">We compare ReFoRM with six baselines on the 100 forecast targets using five LLMs: Gemini 2.5 Flash Lite, GPT-5 mini, DeepSeek V3.2, Llama 4 Maverick, and Qwen Plus (2025-07-28). All methods receive the same target specification and only documents available before the forecast cutoff. Relative to Direct Forecast, ReFoRM improves the five-model average from 0.497 to 0.550 in accuracy, from 0.231 to 0.217 in Brier score, and from 0.991 to 0.922 in negative log-likelihood (NLL). It obtains the lowest Brier score and NLL for every model.</p>
-
+    <h2 class="section-title" id="results-h">Main Results</h2>
+    <p class="prose result-lead">ReFoRM improves both answer accuracy and the quality of forecast probabilities compared with Direct Forecast.</p>
+    <div class="result-overview is-wide">
+      <p class="result-scope">100 forecast targets · Five-model average · Means over three runs</p>
+      <div class="result-cards">
+      <article class="result-card" aria-labelledby="result-accuracy">
+        <div class="result-card-heading"><h3 id="result-accuracy">Accuracy</h3><span>Higher is better</span></div>
+        <p class="result-definition">Share of targets assigned the correct answer.</p>
+        <div class="result-method"><div><span>Direct Forecast</span><strong>49.7%</strong></div><div class="result-track" aria-hidden="true"><span style="width:49.7%"></span></div></div>
+        <div class="result-method result-ours"><div><span>ReFoRM</span><strong>55.0%</strong></div><div class="result-track" aria-hidden="true"><span style="width:55%"></span></div></div>
+        <div class="result-axis" aria-hidden="true"><span>0</span><span>100%</span></div>
+        <p class="result-gain">+5.3 percentage points</p>
+      </article>
+      <article class="result-card" aria-labelledby="result-brier">
+        <div class="result-card-heading"><h3 id="result-brier">Brier score</h3><span>Lower is better</span></div>
+        <p class="result-definition">Measures the gap between forecast probabilities and outcomes.</p>
+        <div class="result-method"><div><span>Direct Forecast</span><strong>0.231</strong></div><div class="result-track" aria-hidden="true"><span style="width:77%"></span></div></div>
+        <div class="result-method result-ours"><div><span>ReFoRM</span><strong>0.217</strong></div><div class="result-track" aria-hidden="true"><span style="width:72.3333%"></span></div></div>
+        <div class="result-axis" aria-hidden="true"><span>0</span><span>0.30</span></div>
+        <p class="result-gain">6.1% lower error</p>
+      </article>
+      <article class="result-card" aria-labelledby="result-nll">
+        <div class="result-card-heading"><h3 id="result-nll">Log loss (NLL)</h3><span>Lower is better</span></div>
+        <p class="result-definition">Penalizes low probabilities assigned to the outcome that occurs.</p>
+        <div class="result-method"><div><span>Direct Forecast</span><strong>0.991</strong></div><div class="result-track" aria-hidden="true"><span style="width:82.5833%"></span></div></div>
+        <div class="result-method result-ours"><div><span>ReFoRM</span><strong>0.922</strong></div><div class="result-track" aria-hidden="true"><span style="width:76.8333%"></span></div></div>
+        <div class="result-axis" aria-hidden="true"><span>0</span><span>1.20</span></div>
+        <p class="result-gain">7.0% lower log loss</p>
+      </article>
+      </div>
+      <p class="result-comparison">Direct Forecast uses current evidence. ReFoRM adds reasoning structures from resolved events, reconstructed against current evidence.</p>
+      <div class="result-consistency"><p><strong>5 / 5 models</strong><span>Best Brier score and NLL across all seven methods.</span></p><p><strong>4 / 5 models</strong><span>Best accuracy across all seven methods.</span></p></div>
+      <p class="result-exception">On GPT-5 mini, Factor Memory and Case Memory have the highest accuracy. ReFoRM still has the best Brier score and NLL.</p>
+      <a class="result-source" href="paper.pdf#page=5" target="_blank" rel="noopener">Table 3 in the paper ↗</a>
+    </div>
+    <details class="results-details is-mid">
+      <summary>Compare all seven methods and five models</summary>
+      <div class="results-detail-content">
     <dl class="baselines">
       <div><dt>Direct Forecast</dt><dd>Standard retrieval-augmented forecasting with current evidence.</dd></div>
       <div><dt>Structured Reasoning</dt><dd>Search-enabled graph reasoning over current evidence.</dd></div>
@@ -258,7 +293,6 @@
       <div><dt>Case Memory</dt><dd>Episode-level retrieval of resolved cases.</dd></div>
       <div><dt>Structure Memory</dt><dd>An outcome-redacted historical event graph used without reconstruction.</dd></div>
     </dl>
-
     <figure class="chart-figure is-mid">
       <div class="chart-controls">
         <div class="segmented" role="group" aria-label="Metric">
@@ -276,7 +310,6 @@
       <div class="strip-tip" id="strip-tip" hidden></div>
       <figcaption id="strip-caption">Brier score for each method and model, as a mean over three runs. Lower is better. Hover over or tap a point to see the method.</figcaption>
     </figure>
-
     <figure class="table-figure">
       <figcaption><b>Forecasting results on the 100 targets.</b> Mean ± standard deviation over three runs. Best and second-best per model and metric are in bold and underlined.</figcaption>
       <div class="segmented model-tabs" role="group" aria-label="Model">
@@ -294,9 +327,11 @@
         </table>
       </div>
     </figure>
-
-    <p class="prose">ReFoRM also leads on accuracy for four of the five models. On GPT-5 mini, Factor Memory and Case Memory reach 0.520 against 0.513 for ReFoRM. Since neither structured reasoning over current evidence nor direct use of a resolved graph matches ReFoRM, the results support reconstructing historical relations under current evidence rather than carrying them forward.</p>
-
+      </div>
+    </details>
+    <details class="results-details is-mid">
+      <summary>Explore results by financial category</summary>
+      <div class="results-detail-content">
     <figure class="table-figure is-mid">
       <figcaption><b>Brier score by category.</b> Pooled across five models using one run per model. Best results are in bold.</figcaption>
       <div class="table-scroll">
@@ -314,8 +349,9 @@
         </table>
       </div>
     </figure>
-
     <p class="prose">By category, ReFoRM has the lowest average Brier score and the best result in three of the five categories, and it improves on Direct Forecast in four. The gains span earnings, macroeconomics, markets, and monetary policy, while energy is nearly tied at 0.2186 against 0.2183.</p>
+      </div>
+    </details>
   </section>
 
   <section class="section" id="analysis" aria-labelledby="analysis-h">
