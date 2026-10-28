@@ -19,8 +19,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/libertinus-serif-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/libertinus-serif-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=main-results-1">
-<script src="app.js?v=3" defer></script>
+<link rel="stylesheet" href="styles.css?v=figures-avg-1">
+<script src="app.js?v=figures-avg-1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -79,7 +79,6 @@
     <div class="resource-links">
       <a class="btn btn-solid" href="paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8Z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h5"/></svg>Paper</a>
       <a class="btn btn-solid" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener"><svg class="fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
-      <a class="btn btn-solid" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5 12 4l7.5 5.5M6.5 10.5v7M10 10.5v7M14 10.5v7M17.5 10.5v7M4.5 20h15"/></svg>SSRN</a>
       <a class="btn btn-solid" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 4.5c-2 0-3 1-3 3v2.5c0 1.2-.8 2-2 2 1.2 0 2 .8 2 2v2.5c0 2 1 3 3 3M15.5 4.5c2 0 3 1 3 3v2.5c0 1.2.8 2 2 2-1.2 0-2 .8-2 2v2.5c0 2-1 3-3 3"/></svg>BibTeX</a>
     </div>
 
@@ -90,7 +89,7 @@
   </section>
 
   <figure class="teaser figure">
-    <a class="plate" href="assets/fig-overview.webp" target="_blank" rel="noopener" aria-label="Open Figure 2 at full size"><img src="assets/fig-overview.webp" width="2076" height="774" alt="Overview of ReFoRM for the question of whether the Fed cuts rates at the next FOMC meeting. Hindsight graphs from resolved meetings link factors such as inflation cooling, labor weakening, and resilient growth to a rate cut. Current evidence forms an evidence ledger, retrieved paths are reconstructed with relation-level and path-level assessments, and a forecaster produces probabilities with structured reasoning." loading="lazy"></a>
+    <a class="plate" href="assets/fig-overview.svg" target="_blank" rel="noopener" aria-label="Open the overview figure at full size"><img src="assets/fig-overview.svg" width="790" height="293" alt="Overview of ReFoRM for the question of whether the Fed cuts rates at the next FOMC meeting. Hindsight graphs from resolved meetings link factors such as inflation cooling, labor weakening, and resilient growth to a rate cut. Current evidence forms an evidence ledger, retrieved paths are reconstructed with relation-level and path-level assessments, and a forecaster produces probabilities with structured reasoning." fetchpriority="high"></a>
     <figcaption><b>Overview of ReFoRM.</b> A resolved occurrence is distilled into reusable factors, conditional paths, and alternatives after removing outcome-specific content. For a later occurrence in the same family, this structure guides relation testing, pre-cutoff evidence determines which relations remain supported, and the resulting assessment is mapped to the new answer boundaries.</figcaption>
   </figure>
 
@@ -103,7 +102,7 @@
     <h2 class="section-title" id="benchmark-h">Recurring Financial Events</h2>
     <p class="prose">Many financial questions recur. Firms report quarterly results, statistical agencies publish the same indicators, and central banks revisit policy decisions on regular schedules. Each resolved occurrence reveals which factors mattered, how they interacted, and through which channels they affected the target. These relationships can guide the next forecast as long as they are checked again against the evidence available at that time.</p>
 <figure class="figure figure-side is-mid">
-      <a class="plate" href="assets/fig-motivation.webp" target="_blank" rel="noopener" aria-label="Open Figure 1 at full size"><img src="assets/fig-motivation.webp" width="963" height="713" alt="Conventional forecasting treats questions on politics, weather, and sports as one-off tasks. A recurring financial event, such as Walmart's quarterly revenue growth, has resolved occurrences in Q1 to Q3 whose reasoning structure is re-evaluated with current evidence for the unresolved Q4." loading="lazy"></a>
+      <a class="plate" href="assets/fig-motivation.svg" target="_blank" rel="noopener" aria-label="Open the motivation figure at full size"><img src="assets/fig-motivation.svg" width="918" height="682" alt="Conventional forecasting treats questions on politics, weather, and sports as one-off tasks. A recurring financial event, such as Walmart's quarterly revenue growth, has resolved occurrences in Q1 to Q3 whose reasoning structure is re-evaluated with current evidence for the unresolved Q4." loading="lazy"></a>
       <figcaption><b>Motivation from resolved events.</b> The same outcome can arise from different reasoning paths. Relationships from resolved recurring events help distinguish supported from unsupported reasoning in new instances.</figcaption>
     </figure>
 <p class="prose">The Recurring Financial Events Set groups comparable occurrences into 40 event families across five categories. A family fixes the entity or series, target quantity, unit, comparison rule, and resolution source, while the forecast cutoff, available evidence, numerical boundaries, and outcome change from one occurrence to the next. Each family recurs seven or eight times, which gives 300 questions: 190 with three classes and 110 binary. Questions are generated from immutable snapshots of 32 FRED series and SEC Company Facts for eight issuers, and class boundaries use only observations available before the cutoff.</p>
@@ -293,22 +292,9 @@
       <div><dt>Case Memory</dt><dd>Episode-level retrieval of resolved cases.</dd></div>
       <div><dt>Structure Memory</dt><dd>An outcome-redacted historical event graph used without reconstruction.</dd></div>
     </dl>
-    <figure class="chart-figure is-mid">
-      <div class="chart-controls">
-        <div class="segmented" role="group" aria-label="Metric">
-          <button type="button" data-metric="brier" aria-pressed="true">Brier score</button>
-          <button type="button" data-metric="nll" aria-pressed="false">NLL</button>
-          <button type="button" data-metric="accuracy" aria-pressed="false">Accuracy</button>
-        </div>
-        <ul class="chart-legend" aria-label="Legend">
-          <li><i class="lg lg-reform"></i>ReFoRM</li>
-          <li><i class="lg lg-direct"></i>Direct Forecast</li>
-          <li><i class="lg lg-other"></i>Other baselines</li>
-        </ul>
-      </div>
-      <div class="strip" id="strip" role="img" aria-label="Brier score of seven methods for each of five models and their average. ReFoRM has the lowest Brier score for every model."></div>
-      <div class="strip-tip" id="strip-tip" hidden></div>
-      <figcaption id="strip-caption">Brier score for each method and model, as a mean over three runs. Lower is better. Hover over or tap a point to see the method.</figcaption>
+    <figure class="avg-figure">
+      <div class="avg-chart" id="avg-chart" role="img" aria-label="Five-model average of seven methods on accuracy, Brier score, and NLL. ReFoRM has the highest accuracy and the lowest Brier score and NLL."></div>
+      <figcaption><b>Five-model average.</b> Each point is the average over the five LLMs of the mean over three runs. The dashed line marks Direct Forecast. Results for each model are in the table below.</figcaption>
     </figure>
     <figure class="table-figure">
       <figcaption><b>Forecasting results on the 100 targets.</b> Mean ± standard deviation over three runs. Best and second-best per model and metric are in bold and underlined.</figcaption>
@@ -517,7 +503,7 @@
 
 <footer class="site-footer">
   <p class="footer-collab"><img src="assets/kakaobank-symbol-black.png" alt="" width="14" height="18">ReFoRM is a research collaboration between UNIST and KakaoBank.</p>
-  <p class="footer-links"><a href="paper.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener">Code</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener">SSRN</a><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a><a href="#top">Back to top</a></p>
+  <p class="footer-links"><a href="paper.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener">Code</a><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a><a href="#top">Back to top</a></p>
 </footer>
 </body>
 </html>

@@ -4,14 +4,14 @@ Project page for **From Hindsight to Foresight: Adapting Reusable Reasoning Stru
 
 Published with GitHub Pages from the root of the `main` branch. No build step is needed.
 
-Official implementation: https://github.com/jinsaaang/reform. The BibTeX on the page is the author-provided SSRN citation (abstract 7475378).
+Official implementation: https://github.com/jinsaaang/reform. The BibTeX on the page is the author-provided citation.
 
 ## Files
 
 - `index.html`: centered title block with the KakaoBank collaboration credit, overview figure, abstract, recurring financial events, method with the interactive FOMC example, results, reasoning analysis, case studies, collaboration, and citation.
 - `styles.css`: layout, light and dark color schemes, responsive rules, and reduced-motion support.
-- `app.js`: the interactive example, the results chart and Table 3 model switch, case-study tabs, BibTeX copy, and section highlighting in the header.
-- `assets/fig-motivation.webp`, `assets/fig-overview.webp`: Figures 1 and 2 cropped from `paper.pdf` at 300 dpi.
+- `app.js`: the interactive example, the five-model average chart, the Table 3 model switch, case-study tabs, BibTeX copy, and section highlighting in the header.
+- `assets/fig-motivation.svg`, `assets/fig-overview.svg`: Figures 1 and 2 as vector SVG, converted from the authors' figure PDFs and cropped to content.
 - `assets/fonts/`: self-hosted Libertinus Serif and Libertinus Sans (SIL Open Font License, see `LICENSE-OFL.txt`).
 - `assets/og-image.png`: link preview image.
 - `assets/kakaobank-symbol-black.png`: collaboration credit.
