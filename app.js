@@ -82,6 +82,7 @@
   let step = 0;
   let focus = 'inflation';
   let edges = null;
+  let edgeHits = null;
 
   function relation(key, s) {
     const f = FACTORS[key];
@@ -115,12 +116,25 @@
     });
     svg.appendChild(defs);
     edges = {};
+    edgeHits = {};
     FACTOR_KEYS.concat('out').forEach((key, i) => {
       const path = document.createElementNS(ns, 'path');
       path.setAttribute('class', 'edge');
+      if (key !== 'out') path.dataset.factorEdge = key;
       path.style.setProperty('--i', key === 'out' ? 3 : i);
       svg.appendChild(path);
       edges[key] = path;
+    });
+    FACTOR_KEYS.forEach(key => {
+      const hit = document.createElementNS(ns, 'path');
+      hit.setAttribute('class', 'edge-hit');
+      hit.dataset.factorEdge = key;
+      hit.setAttribute('fill', 'none');
+      hit.setAttribute('stroke', 'transparent');
+      hit.setAttribute('stroke-width', '22');
+      hit.setAttribute('pointer-events', 'stroke');
+      svg.appendChild(hit);
+      edgeHits[key] = hit;
     });
   }
 
@@ -141,6 +155,8 @@
       const dx = (x2 - x1) * 0.55;
       const state = relation(key, step).state;
       edges[key].setAttribute('d', `M${x1.toFixed(1)} ${y1.toFixed(1)} C${(x1 + dx).toFixed(1)} ${y1.toFixed(1)} ${(x2 - dx).toFixed(1)} ${y2.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+      edgeHits[key].setAttribute('d', edges[key].getAttribute('d'));
+      edges[key].classList.toggle('is-focused', focus === key);
       edges[key].dataset.state = state;
       edges[key].setAttribute('marker-end', `url(#arrow-${state})`);
     });
@@ -155,6 +171,7 @@
   function renderExample() {
     if (!graph) return;
     graph.dataset.step = String(step);
+    graph.dataset.focus = focus;
     FACTOR_KEYS.forEach(key => {
       const f = FACTORS[key];
       const r = relation(key, step);
@@ -173,7 +190,7 @@
     $('#node-case').toggleAttribute('data-active', step === 3);
     $('#node-target').toggleAttribute('data-active', step === 3);
     $('#step-desc').textContent = STEPS[step].desc;
-    $$('[data-step]').forEach(button => {
+    $$('button[data-step]').forEach(button => {
       const i = Number(button.dataset.step);
       button.setAttribute('aria-pressed', String(i === step));
       button.toggleAttribute('data-done', i < step);
@@ -183,6 +200,18 @@
 
     const f = FACTORS[focus];
     $('#evidence-title').textContent = f.name;
+    const before = $('#relation-before');
+    const after = $('#relation-after');
+    const change = $('#relation-change');
+    if (before) before.textContent = `${f.pastSign} ${f.pastSign === '+' ? 'Supports easing' : 'Restrains easing'}`;
+    if (after) {
+      after.textContent = step < 2 ? 'Not yet tested' : f.state === 'unverified' ? 'No active support' : `${f.sign} ${f.sign === '+' ? 'Supports easing' : 'Restrains easing'}`;
+      after.dataset.state = step < 2 ? 'untested' : f.state;
+    }
+    if (change) {
+      change.textContent = step < 2 ? 'Awaiting assessment' : f.state === 'unverified' ? 'Unverified · excluded from active support' : f.state === 'reversed' ? 'Reversed contribution' : 'Preserved contribution';
+      change.dataset.state = step < 2 ? 'untested' : f.state;
+    }
     const assessment = $('#evidence-assessment');
     if (step < 2) {
       assessment.dataset.state = 'historical';
@@ -210,13 +239,27 @@
 
   if (graph) {
     buildEdges();
-    $$('[data-step]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.step))));
+    $$('button[data-step]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.step))));
     $('#step-prev').addEventListener('click', () => setStep(step - 1));
     $('#step-next').addEventListener('click', () => setStep(step === 3 ? 0 : step + 1));
-    $$('[data-factor]').forEach(button => button.addEventListener('click', () => {
-      focus = button.dataset.factor;
+    const selectFactor = key => {
+      if (!FACTORS[key] || focus === key) return;
+      focus = key;
       renderExample();
-    }));
+    };
+    graph.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      const target = event.target.closest('[data-factor], [data-factor-edge]');
+      if (target && graph.contains(target)) selectFactor(target.dataset.factor || target.dataset.factorEdge);
+    });
+    graph.addEventListener('click', event => {
+      const target = event.target.closest('[data-factor-edge]');
+      if (target) selectFactor(target.dataset.factorEdge);
+    });
+    $$('[data-factor]').forEach(button => {
+      button.addEventListener('click', () => selectFactor(button.dataset.factor));
+      button.addEventListener('focus', () => selectFactor(button.dataset.factor));
+    });
     if ('ResizeObserver' in window) new ResizeObserver(drawEdges).observe(graph);
     window.addEventListener('resize', drawEdges, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawEdges);
@@ -236,67 +279,126 @@
     llama:    [[.433,.025,.238,.006,.976,.028],[.433,.012,.246,.005,.996,.010],[.453,.023,.239,.013,1.000,.041],[.427,.040,.241,.006,.994,.013],[.440,.026,.242,.008,1.002,.023],[.450,.026,.245,.008,1.004,.021],[.527,.025,.227,.003,.946,.014]],
     qwen:     [[.523,.021,.228,.005,.984,.035],[.440,.000,.244,.003,1.019,.013],[.530,.017,.233,.008,1.017,.054],[.507,.015,.234,.006,1.024,.059],[.517,.032,.237,.005,1.050,.029],[.533,.040,.232,.004,1.025,.027],[.597,.015,.217,.006,.936,.036]]
   };
-  const fmt = v => v.toFixed(3);
-
-  /* Five-model average: one panel per metric, one row per method.
-     Rows put ReFoRM first, then Direct Forecast, then the other baselines. */
-  const AVG_ORDER = [6, 0, 1, 2, 3, 4, 5];
-  const AVG_METRICS = [
-    { index: 0, label: 'Accuracy', note: 'Higher is better', higher: true },
-    { index: 2, label: 'Brier score', note: 'Lower is better', higher: false },
-    { index: 4, label: 'NLL', note: 'Lower is better', higher: false }
+  const MODELS = [
+    { key: 'gemini', label: 'Gemini 2.5 Flash Lite', short: 'Gemini' },
+    { key: 'gpt', label: 'GPT-5 mini', short: 'GPT-5 mini' },
+    { key: 'deepseek', label: 'DeepSeek V3.2', short: 'DeepSeek' },
+    { key: 'llama', label: 'Llama 4 Maverick', short: 'Llama 4' },
+    { key: 'qwen', label: 'Qwen Plus', short: 'Qwen Plus' },
+    { key: 'average', label: 'Five-model average', short: 'Average' }
   ];
+  const METRICS = {
+    brier: { index: 2, label: 'Brier score', higher: false },
+    nll: { index: 4, label: 'NLL', higher: false },
+    accuracy: { index: 0, label: 'Accuracy', higher: true }
+  };
+  const fmt = v => v.toFixed(3);
+  let metric = 'brier';
 
-  function niceScale(values) {
-    const lo = Math.min(...values);
-    const hi = Math.max(...values);
-    const raw = (hi - lo) / 4;
+  function niceTicks(lo, hi, count) {
+    const raw = (hi - lo) / count;
     const power = Math.pow(10, Math.floor(Math.log10(raw)));
-    const step = [1, 2, 2.5, 5, 10].map(m => m * power).find(v => v >= raw);
-    const pad = (hi - lo) * 0.06;
-    const start = Math.floor((lo - pad) / step) * step;
-    const stop = Math.ceil((hi + pad) / step) * step;
+    const unit = [1, 2, 2.5, 5, 10].map(m => m * power).find(s => s >= raw) || power * 10;
     const ticks = [];
-    for (let t = start; t <= stop + step / 1000; t += step) ticks.push(Number(t.toFixed(6)));
-    return { lo: start, hi: stop, ticks, decimals: step < 0.01 ? 3 : 2 };
+    for (let t = Math.ceil(lo / unit) * unit; t <= hi + 1e-9; t += unit) ticks.push(Number(t.toFixed(6)));
+    return ticks;
   }
 
-  function renderAverageChart() {
-    const host = $('#avg-chart');
-    if (!host) return;
-    const rows = RESULTS.average;
-    const pct = (v, scale) => ((v - scale.lo) / (scale.hi - scale.lo) * 100).toFixed(2) + '%';
-    const names = AVG_ORDER.map(i => `<div class="avg-name${i === 6 ? ' is-ours' : ''}">${METHODS[i]}</div>`).join('');
-    const panels = AVG_METRICS.map(metric => {
-      const values = rows.map(r => r[metric.index]);
-      const scale = niceScale(values);
-      const ref = pct(rows[0][metric.index], scale);
-      const grid = scale.ticks.map(t => `<i class="avg-grid" style="left:${pct(t, scale)}"></i>`).join('');
-      const ticks = scale.ticks.map(t => `<span style="left:${pct(t, scale)}">${t.toFixed(scale.decimals)}</span>`).join('');
-      const body = AVG_ORDER.map(i => {
-        const v = rows[i][metric.index];
-        const kind = i === 6 ? 'is-ours' : i === 0 ? 'is-direct' : 'is-other';
-        let gain = '';
-        if (i === 6) {
-          const base = rows[0][metric.index];
-          const from = Math.min(base, v);
-          const to = Math.max(base, v);
-          gain = `<i class="avg-gain" style="left:${pct(from, scale)};right:calc(100% - ${pct(to, scale)})"></i>`;
-        }
-        return `<div class="avg-row ${kind}"><span class="avg-row-name">${METHODS[i]}</span><span class="avg-track">${gain}<i class="avg-dot" style="left:${pct(v, scale)}"></i></span><span class="avg-value">${fmt(v)}</span></div>`;
-      }).join('');
-      return `<div class="avg-panel">
-        <div class="avg-head"><h3>${metric.label}</h3><span>${metric.note}</span></div>
-        <div class="avg-plot">
-          <div class="avg-bg" aria-hidden="true">${grid}<i class="avg-ref" style="left:${ref}"></i></div>
-          ${body}
-        </div>
-        <div class="avg-axis" aria-hidden="true"><span class="avg-axis-track">${ticks}</span></div>
-      </div>`;
-    }).join('');
-    host.innerHTML = `<div class="avg-names" aria-hidden="true"><div class="avg-head"></div>${names}</div>${panels}`;
+  const strip = $('#strip');
+  const tip = $('#strip-tip');
+
+  function renderStrip() {
+    if (!strip) return;
+    const m = METRICS[metric];
+    const width = Math.max(280, strip.clientWidth);
+    const narrow = width < 560;
+    const labelW = narrow ? 92 : 178;
+    const padR = 14;
+    const rowH = narrow ? 40 : 44;
+    const sepGap = 14;
+    const axisH = 28;
+    const values = MODELS.flatMap(model => RESULTS[model.key].map(row => row[m.index]));
+    let lo = Math.min(...values);
+    let hi = Math.max(...values);
+    const span = hi - lo;
+    lo -= span * 0.06;
+    hi += span * 0.06;
+    const x = v => labelW + (v - lo) / (hi - lo) * (width - labelW - padR);
+    const rowY = r => r * rowH + rowH / 2 + (r === MODELS.length - 1 ? sepGap : 0);
+    const plotBottom = MODELS.length * rowH + sepGap;
+    const height = plotBottom + axisH;
+    const ticks = niceTicks(lo, hi, narrow ? 4 : 6);
+
+    let out = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">`;
+    ticks.forEach(t => {
+      const tx = x(t).toFixed(1);
+      out += `<line class="grid-line" x1="${tx}" x2="${tx}" y1="0" y2="${plotBottom}"/>`;
+      out += `<text class="tick" x="${tx}" y="${plotBottom + 19}" text-anchor="middle">${metric === 'accuracy' ? t.toFixed(2) : t.toFixed(t < 0.5 ? 3 : 2)}</text>`;
+    });
+    const sepY = (MODELS.length - 1) * rowH + sepGap / 2;
+    out += `<line class="avg-sep" x1="0" x2="${width - padR}" y1="${sepY}" y2="${sepY}"/>`;
+    MODELS.forEach((model, r) => {
+      const y = rowY(r);
+      const rows = RESULTS[model.key];
+      out += `<text class="row-label${model.key === 'average' ? ' is-avg' : ''}" x="0" y="${y}" dominant-baseline="central">${narrow ? model.short : model.label}</text>`;
+      out += `<line class="row-line" x1="${labelW}" x2="${width - padR}" y1="${y}" y2="${y}"/>`;
+      const point = (j, cls, radius) => `<circle class="${cls}" cx="${x(rows[j][m.index]).toFixed(1)}" cy="${y}" r="${radius}" data-method="${METHODS[j]}" data-model="${model.label}" data-value="${fmt(rows[j][m.index])}"><title>${METHODS[j]}, ${model.label}: ${fmt(rows[j][m.index])}</title></circle>`;
+      for (let j = 1; j <= 5; j++) out += point(j, 'pt-other', 4.5);
+      out += point(0, 'pt-direct', 5.5);
+      out += point(6, 'pt-reform', 6.5);
+    });
+    out += '</svg>';
+    strip.innerHTML = out;
+
+    const better = m.higher ? 'Higher' : 'Lower';
+    $('#strip-caption').textContent = `${m.label} for each method and model, as a mean over three runs. ${better} is better. Hover over or tap a point to see the method.`;
+    const lead = metric === 'accuracy'
+      ? 'ReFoRM has the highest accuracy for four of the five models and on average.'
+      : `ReFoRM has the lowest ${m.label} for every model.`;
+    strip.setAttribute('aria-label', `${m.label} of seven methods for each of five models and their average. ${lead}`);
   }
-  renderAverageChart();
+
+  function showTip(circle) {
+    const figure = strip.closest('figure');
+    const fb = figure.getBoundingClientRect();
+    const cb = circle.getBoundingClientRect();
+    $$('circle.is-hot', strip).forEach(c => c.classList.remove('is-hot'));
+    circle.classList.add('is-hot');
+    tip.textContent = `${circle.dataset.method}: ${circle.dataset.value}`;
+    tip.hidden = false;
+    const left = cb.left + cb.width / 2 - fb.left;
+    const half = tip.offsetWidth / 2;
+    tip.style.left = Math.max(half + 6, Math.min(fb.width - half - 6, left)) + 'px';
+    tip.style.top = (cb.top - fb.top) + 'px';
+  }
+  function hideTip() {
+    if (!tip) return;
+    tip.hidden = true;
+    $$('circle.is-hot', strip).forEach(c => c.classList.remove('is-hot'));
+  }
+
+  if (strip) {
+    strip.addEventListener('pointerover', event => { if (event.target.matches('circle')) showTip(event.target); });
+    strip.addEventListener('pointerout', event => { if (event.target.matches('circle') && event.pointerType === 'mouse') hideTip(); });
+    strip.addEventListener('pointerdown', event => { if (event.target.matches('circle')) showTip(event.target); else hideTip(); });
+    document.addEventListener('pointerdown', event => { if (!strip.contains(event.target)) hideTip(); });
+    $$('[data-metric]').forEach(button => button.addEventListener('click', () => {
+      metric = button.dataset.metric;
+      $$('[data-metric]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      hideTip();
+      renderStrip();
+    }));
+    let lastWidth = 0;
+    const onResize = () => {
+      if (Math.abs(strip.clientWidth - lastWidth) < 2) return;
+      lastWidth = strip.clientWidth;
+      hideTip();
+      renderStrip();
+    };
+    if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(strip);
+    else window.addEventListener('resize', onResize, { passive: true });
+    renderStrip();
+  }
 
   function renderTable(model) {
     const body = $('#results-table tbody');

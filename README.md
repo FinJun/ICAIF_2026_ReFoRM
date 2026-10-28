@@ -4,17 +4,17 @@ Project page for **From Hindsight to Foresight: Adapting Reusable Reasoning Stru
 
 Published with GitHub Pages from the root of the `main` branch. No build step is needed.
 
-Official implementation: https://github.com/jinsaaang/reform. The BibTeX on the page is the author-provided citation.
+Official implementation: https://github.com/jinsaaang/reform. The BibTeX on the page is the author-provided SSRN citation (abstract 7475378).
 
 ## Files
 
-- `index.html`: centered title block with the KakaoBank collaboration credit, overview figure, abstract, recurring financial events, method with the interactive FOMC example, results, reasoning analysis, case studies, collaboration, and citation.
+- `index.html`: centered title block with the KakaoBank collaboration credit, overview figure, abstract, recurring financial events, method with the interactive FOMC example, results, reasoning analysis, case studies and citation. Long-form explanations and tables are retained in expandable details; the collaboration credit appears once in the hero.
 - `styles.css`: layout, light and dark color schemes, responsive rules, and reduced-motion support.
-- `app.js`: the interactive example, the five-model average chart, the Table 3 model switch, case-study tabs, BibTeX copy, and section highlighting in the header.
+- `app.js`: the interactive example with pointer, keyboard, and touch relation selection, the results chart and Table 3 model switch, case-study tabs, BibTeX copy, and section highlighting in the header.
 - `assets/fig-motivation.svg`, `assets/fig-overview.svg`: Figures 1 and 2 as vector SVG, converted from the authors' figure PDFs and cropped to content.
 - `assets/fonts/`: self-hosted Libertinus Serif and Libertinus Sans (SIL Open Font License, see `LICENSE-OFL.txt`).
 - `assets/og-image.png`: link preview image.
-- `assets/kakaobank-symbol-black.png`: collaboration credit.
+- `assets/kakaobank-signature-black.png`: collaboration credit.
 - `paper.pdf`: supplied manuscript, unchanged.
 
 ## Evidence and scope
