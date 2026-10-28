@@ -1,126 +1,487 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f8fa">
-  <meta name="description" content="Meet ReFoRM: a research framework that reuses reasoning from past financial events, then reconstructs it with current evidence. Explore the method, cases, and results.">
-  <meta property="og:title" content="ReFoRM — From Hindsight to Foresight">
-  <meta property="og:description" content="Reuse reasoning from resolved financial events, validate it with current evidence, and forecast the next occurrence.">
-  <meta property="og:type" content="website">
-  <title>ReFoRM — From Hindsight to Foresight</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=collaboration-2">
-  <script src="app.js?v=citation-2026" defer></script>
-  <script src="finance-example.js" defer></script>
-  <script src="polish.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReFoRM: From Hindsight to Foresight</title>
+<meta name="description" content="ReFoRM reuses reasoning structures from resolved recurring financial events and reconstructs their relations with current evidence to forecast the next occurrence. ICAIF 2026.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141619" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events">
+<meta property="og:description" content="ReFoRM reuses reasoning structures from resolved recurring financial events and reconstructs their relations with current evidence. ICAIF 2026.">
+<meta property="og:url" content="https://minkang1015.github.io/ICAIF_2026_ReFoRM/">
+<meta property="og:image" content="https://minkang1015.github.io/ICAIF_2026_ReFoRM/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/libertinus-serif-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/libertinus-serif-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=3">
+<script src="app.js?v=3" defer></script>
 </head>
 <body>
-<div class="reading-progress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header">
-  <a class="wordmark" href="#" aria-label="ReFoRM home"><span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 5.8a6 6 0 0 1-7.7 7.7l-6.5 6.5a2.4 2.4 0 0 1-3.4-3.4l6.5-6.5a6 6 0 0 1 7.7-7.7L14 6.5 17.5 10Z"/></svg></span>ReFoRM<span class="wordmark-dot">.</span></a>
-  <nav aria-label="Main navigation"><a href="#idea"><span class="nav-index" aria-hidden="true">01</span>The idea</a><a href="#method"><span class="nav-index" aria-hidden="true">02</span>How it works</a><a href="#results"><span class="nav-index" aria-hidden="true">03</span>Results</a><a href="#cases"><span class="nav-index" aria-hidden="true">04</span>In practice</a></nav>
-  <div class="header-resources" role="group" aria-label="Research resources"><a class="paper-link" href="paper.pdf" target="_blank" rel="noopener"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>Read the paper</a><a class="paper-link" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener"><svg class="resource-icon" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a></div>
+  <div class="header-inner">
+    <a class="wordmark" href="#top" aria-label="ReFoRM, back to top">
+      <svg class="mark" viewBox="0 0 30 10" width="30" height="10" aria-hidden="true"><circle cx="4" cy="5" r="3.2"/><circle cx="15" cy="5" r="3.2"/><circle class="mark-open" cx="26" cy="5" r="2.6"/></svg>
+      ReFoRM
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#analysis">Analysis</a>
+      <a href="#cases">Case studies</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <div class="header-links">
+      <a class="btn btn-quiet" href="paper.pdf" target="_blank" rel="noopener">Paper</a>
+      <a class="btn btn-quiet" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener">Code</a>
+    </div>
+  </div>
 </header>
+
 <main id="main">
-  <section class="paper-masthead wrap" aria-labelledby="paper-heading">
-    <div class="masthead-main">
-    <div class="masthead-copy">
-    <div class="eyebrow masthead-kicker"><span aria-hidden="true"></span> ReFoRM / REASONING MEMORY <a class="conference-chip" id="icaif-2026" href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026 <b aria-hidden="true">↗</b></a></div>
-    <h1 id="paper-heading">From Hindsight<br>to <em>Foresight.</em></h1>
-    <p class="masthead-subtitle">Adapting Reusable Reasoning Structures<br class="desktop-break"> from Recurring Financial Events</p>
-    <p class="masthead-summary">A framework that learns how past financial events unfolded, checks those relationships against current evidence, and forecasts the next occurrence.</p>
-    <div class="masthead-actions"><a class="button primary" href="#method">Explore ReFoRM <span aria-hidden="true">↗</span></a><div class="masthead-resources" role="group" aria-label="Paper and code"><a class="masthead-paper-link" href="paper.pdf" target="_blank" rel="noopener"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>Read the paper</a><a class="masthead-paper-link" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener"><svg class="resource-icon" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a></div></div>
-    </div>
-    <div class="masthead-art" aria-label="ReFoRM connects past reasoning with current evidence to produce a new forecast">
-      <svg class="art-traces" viewBox="0 0 520 520" fill="none" aria-hidden="true"><ellipse cx="455" cy="85" rx="145" ry="125"/><ellipse cx="455" cy="85" rx="175" ry="155"/><path class="trace-flow" d="M40 5 C40 115 470 135 470 265 S70 375 70 515"/><circle cx="40" cy="40" r="4"/><circle cx="470" cy="265" r="5"/><circle cx="70" cy="470" r="4"/></svg>
-      <div class="art-topline"><span>PAST EXPERIENCE. CURRENT EVIDENCE.</span><span class="art-symbol" aria-hidden="true">↗</span></div>
-      <div class="art-memory"><span class="art-index">01</span><div><small>LEARN THE STRUCTURE</small><strong>Resolved events</strong><span>Factors · relationships · conditions</span></div><span class="art-stack" aria-hidden="true"><i></i><i></i><i></i></span></div>
-      <div class="art-connector" aria-hidden="true"><i></i><span>reuse the reasoning path</span></div>
-      <div class="art-reconstruction"><span class="art-index">02</span><div><small>RECONSTRUCT FOR TODAY</small><strong>Current evidence</strong><div class="art-chips"><span>keep</span><span>reverse</span><span>reject</span><span>uncertain</span></div></div><span class="art-check" aria-hidden="true">↻</span></div>
-      <div class="art-connector" aria-hidden="true"><i></i><span>reason before choosing an answer</span></div>
-      <div class="art-forecast"><span class="art-index">03</span><div><small>FORECAST WHAT COMES NEXT</small><strong>A new probability forecast</strong></div><span aria-hidden="true">↗</span></div>
-    </div>
-    </div>
-    <div class="masthead-credits">
-    <div class="paper-authors" aria-label="Paper authors">
-      <span>Sangjin Jin<sup>1,*</sup></span><span>Junhyeong Lee<sup>1,*</sup></span><span>Daehee Han<sup>2,*</sup></span><span>Kangmin Kim<sup>1</sup></span><span>Suhwan Park<sup>1</sup></span><span>Seonghun Jeong<sup>2</sup></span><span>Daekyung Park<sup>3</sup></span><span>Lukasz Szpruch<sup>4</sup></span><span>Zhangyang Wang<sup>5</sup></span><span>Chanyeol Choi<sup>3</sup></span><span>Youngjun Kwak<sup>2,†</sup></span><span>Yongjae Lee<sup>1,3,†</sup></span>
-    </div>
-    <div class="research-collaboration"><img src="assets/kakaobank-signature-black.png" alt="KakaoBank logo" width="4214" height="800"><p>This research was conducted in collaboration with <strong>KakaoBank.</strong></p></div>
-    <details class="credit-details"><summary>Affiliations & contributions</summary><div class="paper-affiliations"><span><sup>1</sup> UNIST</span><span><sup>2</sup> KakaoBank</span><span><sup>3</sup> LinqAlpha</span><span><sup>4</sup> University of Edinburgh</span><span><sup>5</sup> The University of Texas at Austin</span></div><p class="contribution-note">* Equal contribution &nbsp; · &nbsp; † Co-corresponding authors</p></details>
-    </div>
-  </section>
-  <div class="research-strip wrap"><span class="strip-label">THE STUDY AT A GLANCE</span><div><strong>300</strong><span>financial questions</span></div><div><strong>40</strong><span>recurring event families</span></div><div><strong>5</strong><span>language models</span></div><div><strong>6</strong><span>baseline methods</span></div></div>
 
-  <section class="section wrap idea-section" id="idea" aria-labelledby="idea-title">
-    <div class="section-heading"><div class="eyebrow">01 / THE IDEA</div><h2 id="idea-title">Remember the reasoning.<br><em>Reconsider the relationships.</em></h2></div>
-    <div class="idea-layout"><p class="large-copy">Earnings releases and inflation reports recur. Their drivers and economic conditions change between occurrences.</p><div class="body-copy"><p>Resolved events reveal relevant factors, their connections, and the conditions behind earlier forecasts.</p><p>ReFoRM turns those connections into reusable reasoning paths. For a new event, it checks each relationship against current evidence—keeping, reversing, rejecting, or leaving it unresolved.</p><a class="source-link" href="paper.pdf#page=2" target="_blank" rel="noopener">Based on the paper, §§1 & 4 <span aria-hidden="true">↗</span></a></div></div>
-    <div class="comparison"><div class="comparison-before"><span class="small-label">A PAST ANSWER</span><p>“Rates fell last time.”</p><span>A result tells us what happened.</span></div><span class="comparison-arrow" aria-hidden="true">→</span><div class="comparison-after"><span class="small-label">A REUSABLE QUESTION</span><p>“Which conditions supported a cut,<br>and do they hold today?”</p><span>A reasoning structure tells us what to check.</span></div></div>
+  <section class="hero" id="top" aria-labelledby="paper-title">
+    <p class="venue"><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a></p>
+    <h1 id="paper-title">From Hindsight to Foresight<span class="subtitle">Adapting Reusable Reasoning Structures from Recurring Financial Events</span></h1>
+
+    <ul class="authors" aria-label="Authors">
+      <li>Sangjin Jin<sup>1,*</sup></li>
+      <li>Junhyeong Lee<sup>1,*</sup></li>
+      <li>Daehee Han<sup>2,*</sup></li>
+      <li>Kangmin Kim<sup>1</sup></li>
+      <li>Suhwan Park<sup>1</sup></li>
+      <li>Seonghun Jeong<sup>2</sup></li>
+      <li>Daekyung Park<sup>3</sup></li>
+      <li>Lukasz Szpruch<sup>4</sup></li>
+      <li>Zhangyang Wang<sup>5</sup></li>
+      <li>Chanyeol Choi<sup>3</sup></li>
+      <li>Youngjun Kwak<sup>2,†</sup></li>
+      <li>Yongjae Lee<sup>1,3,†</sup></li>
+    </ul>
+    <ul class="affiliations" aria-label="Affiliations">
+      <li><sup>1</sup>UNIST</li>
+      <li><sup>2</sup>KakaoBank</li>
+      <li><sup>3</sup>LinqAlpha</li>
+      <li><sup>4</sup>University of Edinburgh</li>
+      <li><sup>5</sup>The University of Texas at Austin</li>
+    </ul>
+    <p class="author-notes"><span><sup>*</sup>Equal contribution</span><span><sup>†</sup>Co-corresponding authors</span></p>
+
+    <div class="resource-links">
+      <a class="btn btn-solid" href="paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8Z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h5"/></svg>Paper</a>
+      <a class="btn btn-solid" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener"><svg class="fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
+      <a class="btn btn-solid" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5 12 4l7.5 5.5M6.5 10.5v7M10 10.5v7M14 10.5v7M17.5 10.5v7M4.5 20h15"/></svg>SSRN</a>
+      <a class="btn btn-solid" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 4.5c-2 0-3 1-3 3v2.5c0 1.2-.8 2-2 2 1.2 0 2 .8 2 2v2.5c0 2 1 3 3 3M15.5 4.5c2 0 3 1 3 3v2.5c0 1.2.8 2 2 2-1.2 0-2 .8-2 2v2.5c0 2-1 3-3 3"/></svg>BibTeX</a>
+    </div>
+
+    <a class="collab-lockup" href="#collaboration">
+      <span class="collab-text">Research conducted in collaboration with</span>
+      <span class="collab-brand"><img src="assets/kakaobank-symbol-black.png" alt="" width="22" height="28">KakaoBank</span>
+    </a>
   </section>
 
-  <section class="method-section" id="method" aria-labelledby="method-title"><div class="wrap section">
-    <div class="section-heading split-heading"><div><div class="eyebrow">02 / HOW IT WORKS</div><h2 id="method-title">From past events<br><em>to a new forecast.</em></h2></div><p><strong>Input:</strong> resolved occurrences from the same event family and current pre-cutoff evidence.<br><strong>Output:</strong> a probability distribution for the next occurrence, supported by reconstructed reasoning.</p></div>
-    <div class="method-explorer" id="method-explorer"><div class="explorer-intro"><span class="explorer-label">FOLLOW THE REASONING</span><p>Hover over a stage to explore. On touch screens, tap a stage.</p></div>
-    <div class="method-tabs" role="tablist" aria-label="ReFoRM stages"><button id="stage-tab-0" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span class="stage-node">01</span><strong>Build memory</strong><small>Resolved occurrences</small></button><button id="stage-tab-1" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="1" tabindex="-1"><span class="stage-node">02</span><strong>Gather evidence</strong><small>Before the cutoff</small></button><button id="stage-tab-2" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="2" tabindex="-1"><span class="stage-node">03</span><strong>Reconstruct</strong><small>Test each relationship</small></button><button id="stage-tab-3" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="3" tabindex="-1"><span class="stage-node">04</span><strong>Forecast</strong><small>New probabilities</small></button></div>
-    <div class="method-panel" id="stage-panel" role="tabpanel" aria-labelledby="stage-tab-0" tabindex="0"><div class="method-copy-stack" id="method-copy"><div class="method-text" aria-hidden="false"><span class="pill">LEARN FROM RESOLVED EVENTS</span><h3>Keep the relationships.<br>Leave the past answer behind.</h3><p class="stage-copy-description">Reuse a historical reasoning structure, then test its relationships against evidence for the new occurrence.</p><div class="method-principle"><span aria-hidden="true">↳</span><p>Check each relationship against current evidence.</p></div></div></div><div class="method-diagram" id="stage-diagram"></div></div>
-    <section class="finance-lab" id="finance-lab" aria-labelledby="finance-title">
-      <div class="finance-heading"><div><span class="small-label">FOMC / SEPTEMBER 2024</span><h3 id="finance-title">Will the Fed lower rates<br>at its September 2024 meeting?</h3></div><p>Move over an evidence card or graph link. Watch a historical path survive, change its contribution, or leave the active forecast.</p></div>
-      <div class="finance-timeline"><span><b>Reference</b> 20 Sep 2023</span><span><b>Selected evidence by</b> 23 Aug 2024</span><span><b>New target</b> 18 Sep 2024</span></div>
-      <div class="finance-view-controls" role="group" aria-label="Financial graph view"><button data-finance-view="history" aria-pressed="true">Past structure</button><button data-finance-view="current" aria-pressed="false">Recheck with current evidence</button><button id="finance-show-all">Show all changes <span aria-hidden="true">↗</span></button></div>
-      <p class="finance-pan-hint">Swipe the graph horizontally to follow a path. Tap the evidence cards below to inspect it.</p>
-      <div class="finance-graph-scroll" tabindex="0" role="region" aria-label="Interactive Fed reasoning graph; scroll horizontally on small screens"><div class="finance-graph" id="finance-graph" data-view="history">
-        <div class="finance-graph-label"><span id="finance-view-label">HISTORICAL STRUCTURE</span><span>+ supports easing &nbsp; − restrains easing</span></div>
-        <svg class="finance-links" viewBox="0 0 980 430" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="finance-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="context-stroke"/></marker></defs>
-          <path class="finance-ghost" d="M260 83 C365 83 365 215 470 215"/><path class="finance-ghost" d="M260 215 H470"/><path class="finance-ghost" d="M260 347 C365 347 365 215 470 215"/>
-          <path class="finance-link" data-finance-edge="inflation" d="M260 83 C365 83 365 215 470 215" marker-end="url(#finance-arrow)"/><path class="finance-link" data-finance-edge="labor" d="M260 215 H470" marker-end="url(#finance-arrow)"/><path class="finance-link" data-finance-edge="credit" d="M260 347 C365 347 365 215 470 215" marker-end="url(#finance-arrow)"/>
-          <path class="finance-output-link" d="M650 215 H735" marker-end="url(#finance-arrow)"/>
-          <path class="finance-hit" data-finance-hover="inflation" d="M260 83 C365 83 365 215 470 215"/><path class="finance-hit" data-finance-hover="labor" d="M260 215 H470"/><path class="finance-hit" data-finance-hover="credit" d="M260 347 C365 347 365 215 470 215"/>
-        </svg>
-        <div class="finance-node finance-factor factor-inflation" data-finance-node="inflation"><small>FACTOR 01</small><strong>Inflation trend</strong><span data-finance-signal="inflation">Moderating, still elevated</span></div>
-        <div class="finance-node finance-factor factor-labor" data-finance-node="labor"><small>FACTOR 02</small><strong>Labor conditions</strong><span data-finance-signal="labor">Jobs remain strong</span></div>
-        <div class="finance-node finance-factor factor-credit" data-finance-node="credit"><small>FACTOR 03</small><strong>Credit conditions</strong><span data-finance-signal="credit">Tighter credit headwinds</span></div>
-        <button class="finance-edge-label edge-inflation" data-finance-path="inflation" aria-label="Inspect inflation path"><b data-finance-sign="inflation">+</b><span data-finance-status="inflation">Historical</span></button>
-        <button class="finance-edge-label edge-labor" data-finance-path="labor" aria-label="Inspect labor path"><b data-finance-sign="labor">−</b><span data-finance-status="labor">Historical</span></button>
-        <button class="finance-edge-label edge-credit" data-finance-path="credit" aria-label="Inspect credit path"><b data-finance-sign="credit">+</b><span data-finance-status="credit">Historical</span></button>
-        <div class="finance-node finance-balance"><small>REASONING TARGET</small><strong>Case for<br>easing</strong><span id="finance-balance-note">Test the historical paths.</span></div>
-        <div class="finance-node finance-target"><small>NEW OCCURRENCE</small><strong>18 Sep 2024<br>rate decision</strong><span>Cut size remains unresolved.</span></div>
-      </div></div>
-      <div class="finance-legend"><span><i class="legend-past"></i>Past link (ghost)</span><span><i class="legend-kept"></i>Preserved</span><span><i class="legend-reversed"></i>Reversed contribution</span><span><i class="legend-removed"></i>Removed from active support</span></div>
-      <p class="finance-graph-status" id="finance-graph-status">2023 paths. Hover a card to apply the 2024 evidence.</p>
-      <div class="finance-evidence-list" role="group" aria-label="Explore current financial evidence">
-        <button data-finance-card="inflation" aria-pressed="false"><span class="finance-card-state">01 / PRESERVED</span><strong>Inflation progress resumes</strong><p>Powell reports renewed progress toward 2%.</p><span class="finance-card-arrow" aria-hidden="true">↗</span></button>
-        <button data-finance-card="labor" aria-pressed="false"><span class="finance-card-state">02 / REVERSED CONTRIBUTION</span><strong>The labor market cools</strong><p>A formerly tight labor signal now favors easing.</p><span class="finance-card-arrow" aria-hidden="true">↗</span></button>
-        <button data-finance-card="credit" aria-pressed="false"><span class="finance-card-state">03 / REMOVED · UNVERIFIED</span><strong>Credit support remains unverified</strong><p>Current sources leave this path unresolved.</p><span class="finance-card-arrow" aria-hidden="true">↗</span></button>
+  <figure class="teaser figure">
+    <a class="plate" href="assets/fig-overview.webp" target="_blank" rel="noopener" aria-label="Open Figure 2 at full size"><img src="assets/fig-overview.webp" width="2076" height="774" alt="Overview of ReFoRM for the question of whether the Fed cuts rates at the next FOMC meeting. Hindsight graphs from resolved meetings link factors such as inflation cooling, labor weakening, and resilient growth to a rate cut. Current evidence forms an evidence ledger, retrieved paths are reconstructed with relation-level and path-level assessments, and a forecaster produces probabilities with structured reasoning." loading="lazy"></a>
+    <figcaption><b>Overview of ReFoRM.</b> A resolved occurrence is distilled into reusable factors, conditional paths, and alternatives after removing outcome-specific content. For a later occurrence in the same family, this structure guides relation testing, pre-cutoff evidence determines which relations remain supported, and the resulting assessment is mapped to the new answer boundaries.</figcaption>
+  </figure>
+
+  <section class="section" id="abstract" aria-labelledby="abstract-h">
+    <h2 class="section-title" id="abstract-h">Abstract</h2>
+    <p class="prose abstract">Forecasting real-world events requires reasoning under uncertainty from information available at a fixed cutoff. Recent work has improved how large language models (LLMs) retrieve evidence and produce probabilistic forecasts, but each question is treated independently even when similar events recur. Resolved occurrences carry experience for later forecasts, yet past outcomes and case summaries do not preserve the relationships that made an earlier occurrence informative. We develop ReFoRM (Recurrent-event Forecasting with Reasoning Memory), which organizes reasoning from resolved events into predictive paths, retrieves relevant paths for a later occurrence, and reconstructs their relations using evidence at the new forecast cutoff. We evaluate ReFoRM on the Recurring Financial Events Set, which contains 300 questions across 40 recurring financial event families and uses earlier occurrences as hindsight for 100 forecast targets. Across five LLMs and six baselines, ReFoRM improves categorical and probabilistic forecasting performance. Further analyses show that validating historical relations with current evidence and reconstructing them enhances forecasting. Reasoning evaluation also demonstrates stronger evidence grounding, logical validity, and mechanism specificity.</p>
+  </section>
+
+  <section class="section" id="benchmark" aria-labelledby="benchmark-h">
+    <h2 class="section-title" id="benchmark-h">Recurring Financial Events</h2>
+    <p class="prose">Many financial questions recur. Firms report quarterly results, statistical agencies publish the same indicators, and central banks revisit policy decisions on regular schedules. Each resolved occurrence reveals which factors mattered, how they interacted, and through which channels they affected the target. These relationships can guide the next forecast as long as they are checked again against the evidence available at that time.</p>
+<figure class="figure figure-side is-mid">
+      <a class="plate" href="assets/fig-motivation.webp" target="_blank" rel="noopener" aria-label="Open Figure 1 at full size"><img src="assets/fig-motivation.webp" width="963" height="713" alt="Conventional forecasting treats questions on politics, weather, and sports as one-off tasks. A recurring financial event, such as Walmart's quarterly revenue growth, has resolved occurrences in Q1 to Q3 whose reasoning structure is re-evaluated with current evidence for the unresolved Q4." loading="lazy"></a>
+      <figcaption><b>Motivation from resolved events.</b> The same outcome can arise from different reasoning paths. Relationships from resolved recurring events help distinguish supported from unsupported reasoning in new instances.</figcaption>
+    </figure>
+<p class="prose">The Recurring Financial Events Set groups comparable occurrences into 40 event families across five categories. A family fixes the entity or series, target quantity, unit, comparison rule, and resolution source, while the forecast cutoff, available evidence, numerical boundaries, and outcome change from one occurrence to the next. Each family recurs seven or eight times, which gives 300 questions: 190 with three classes and 110 binary. Questions are generated from immutable snapshots of 32 FRED series and SEC Company Facts for eight issuers, and class boundaries use only observations available before the cutoff.</p>
+<figure class="table-figure is-wide">
+      <figcaption><b>Coverage of the 40 event families.</b> Each category contains 8 families and 60 questions.</figcaption>
+      <div class="table-scroll">
+        <table class="booktabs coverage">
+          <thead><tr><th scope="col">Category</th><th scope="col">Event families</th><th scope="col">Prediction target</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Corporate earnings</th><td>Apple, Amazon, Alphabet, Meta, Microsoft, NVIDIA, Tesla, and Walmart</td><td>Quarterly YoY revenue-growth acceleration (SEC)</td></tr>
+            <tr><th scope="row">Energy and commodities</th><td>Brent and WTI crude, Henry Hub gas, U.S. gasoline and diesel, aluminum, copper, and wheat</td><td>Monthly price return or change (FRED)</td></tr>
+            <tr><th scope="row">Macroeconomics</th><td>CPI, core CPI, PCE prices, payrolls, unemployment, retail sales, industrial production, and housing starts</td><td>Monthly change or growth (FRED)</td></tr>
+            <tr><th scope="row">Markets and credit</th><td>S&amp;P 500, NASDAQ, VIX, U.S. dollar, Treasury yield, IG and HY spreads, and financial stress</td><td>Monthly return or change (FRED)</td></tr>
+            <tr><th scope="row">Monetary policy</th><td>Federal funds rate, Treasury and real yields, breakeven inflation, Federal Reserve assets, and M2</td><td>Monthly rate change or growth (FRED)</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="finance-inspector" id="finance-inspector" tabindex="0"><div class="finance-inspector-title"><span id="finance-inspector-badge">INFLATION / HISTORICAL PATH</span><h4 id="finance-inspector-title">Start from the historical structure.</h4></div><div class="finance-evidence-comparison"><div><span class="small-label">PAST EVIDENCE / 2023</span><p id="finance-past-evidence"></p><a class="source-link" id="finance-past-source" target="_blank" rel="noopener">Federal Reserve source ↗</a></div><div><span class="small-label">SELECTED EVIDENCE / BY 23 AUG 2024</span><p id="finance-current-evidence"></p><a class="source-link" id="finance-current-source" target="_blank" rel="noopener">Federal Reserve source ↗</a></div></div><p class="finance-interpretation"><strong>Forecast effect</strong> <span id="finance-interpretation"></span></p></div>
-    </section>
-    </div><div class="method-bottom"><span><strong>ReFoRM:</strong> Recurrent-event Forecasting with Reasoning Memory.<br>Current evidence always takes precedence over historical structure.</span><a class="source-link" href="paper.pdf#page=4" target="_blank" rel="noopener">Explore §4 in the paper ↗</a></div>
-  </div></section>
-
-  <section class="section wrap results-section" id="results" aria-labelledby="results-title">
-    <div class="section-heading split-heading"><div><div class="eyebrow">03 / THE EVIDENCE</div><h2 id="results-title">Better forecasts.<br><em>Across five model families.</em></h2></div><p>On 100 forecast targets, ReFoRM improves the five-model average in accuracy and probabilistic quality.</p></div>
-    <div class="metric-cards"><div><span class="small-label">ACCURACY ↑</span><div class="metric-value">55.0<span>%</span></div><p><strong>+5.3 percentage points</strong> vs. Direct Forecast</p></div><div><span class="small-label">BRIER SCORE ↓</span><div class="metric-value">0.217</div><p><strong>0.231 → 0.217</strong> vs. Direct Forecast</p></div><div><span class="small-label">NEGATIVE LOG-LIKELIHOOD ↓</span><div class="metric-value">0.922</div><p><strong>0.991 → 0.922</strong> vs. Direct Forecast</p></div></div>
-    <div class="chart-card"><div class="chart-header"><div><h3>Compare the methods</h3><p id="metric-description">Brier score measures probability error. Lower is better.</p></div><label class="model-picker">Model<select id="model-select"><option value="average">Five-model average</option><option value="gemini">Gemini 2.5 Flash Lite</option><option value="gpt">GPT-5 mini</option><option value="deepseek">DeepSeek V3.2</option><option value="llama">Llama 4 Maverick</option><option value="qwen">Qwen Plus (2025-07-28)</option></select></label></div>
-      <div class="metric-tabs" role="group" aria-label="Comparison metric"><button class="active" aria-pressed="true" data-metric="brier">Brier score ↓</button><button aria-pressed="false" data-metric="accuracy">Accuracy ↑</button><button aria-pressed="false" data-metric="nll">NLL ↓</button></div>
-      <div id="results-chart" class="results-chart" aria-live="polite"></div>
-      <div class="chart-note"><span>Reported means over three runs. Bars start at zero.</span><a class="source-link" href="paper.pdf#page=5" target="_blank" rel="noopener">Table 3, p. 5 ↗</a></div>
-      <details class="data-details"><summary>View exact values and standard deviations</summary><div class="table-scroll"><table><caption id="data-caption">Five-model average — Table 3</caption><thead><tr><th scope="col">Method</th><th scope="col">Accuracy ↑</th><th scope="col">Brier ↓</th><th scope="col">NLL ↓</th></tr></thead><tbody id="results-table"></tbody></table></div></details>
-    </div>
-    <div class="results-nuance"><p>ReFoRM leads Brier score and NLL across all five models. Factor Memory has the highest GPT-5 mini accuracy.</p></div>
+    </figure>
+<figure class="split" aria-labelledby="split-caption">
+      <div class="split-track" aria-hidden="true">
+        <div class="split-ref"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="split-target"><i></i><i></i><i class="maybe"></i></div>
+      </div>
+      <div class="split-labels">
+        <p><b>Reference questions.</b> The first five occurrences of each family, 200 questions in total, with cutoffs between January 2023 and August 2025.</p>
+        <p><b>Forecast targets.</b> The remaining two or three occurrences, 100 questions in total, with cutoffs between March 2025 and June 2026.</p>
+      </div>
+      <figcaption id="split-caption"><b>Chronological split within each family.</b> The split is chronological within each family, so every target has five resolved cases from its own family. Questions from the same release stay on the same side of the split, and target outcomes are never supplied to any method.</figcaption>
+    </figure>
   </section>
 
-  <section class="case-section" id="cases" aria-labelledby="cases-title"><div class="section wrap">
-    <div class="section-heading split-heading"><div><div class="eyebrow">04 / IN PRACTICE</div><h2 id="cases-title">What changes when<br><em>the reasoning changes?</em></h2></div><p>Two cases from the paper show why reconstructing relationships matters—even when the final answer stays the same.</p></div>
-    <div class="case-tabs" role="tablist" aria-label="Paper case studies"><button id="case-tab-0" role="tab" aria-controls="case-panel" aria-selected="true" data-case="0">01 <span>U.S. inflation</span><span aria-hidden="true">↗</span></button><button id="case-tab-1" role="tab" aria-controls="case-panel" aria-selected="false" data-case="1" tabindex="-1">02 <span>Walmart earnings</span><span aria-hidden="true">↗</span></button></div>
-    <div id="case-panel" role="tabpanel" aria-labelledby="case-tab-0" tabindex="0"><div class="case-question"><span class="small-label" id="case-period"></span><h3 id="case-question"></h3><p id="case-boundaries"></p></div><div class="case-difference"><span class="case-change-label" id="case-change-label"></span><h4 id="case-difference"></h4><p id="case-shared-evidence"></p></div><div class="case-comparison"><article class="case-direct"><div class="case-method"><span class="small-label">DIRECT FORECAST</span><span class="case-type">Current evidence only</span></div><h4 id="direct-title"></h4><ol class="reasoning-trace" id="direct-trace"></ol><div class="case-verdict"><span>Selected option</span><strong id="direct-option"></strong></div></article><article class="case-reform"><div class="case-method"><span class="small-label">ReFoRM</span><span class="case-type">Reconstructed reasoning</span></div><h4 id="reform-title"></h4><ol class="reasoning-trace" id="reform-trace"></ol><div class="case-verdict"><span>Selected option</span><strong id="reform-option"></strong></div></article></div><div class="case-result-visual" id="case-result-visual"></div><div class="case-takeaway"><span aria-hidden="true">↳</span><p id="case-takeaway"></p></div></div>
-    <div class="case-source"><a class="source-link" href="paper.pdf#page=7" target="_blank" rel="noopener">Figure 3, p. 7 ↗</a></div>
-  </div></section>
+  <section class="section" id="method" aria-labelledby="method-h">
+    <h2 class="section-title" id="method-h">Method</h2>
+<p class="prose">ReFoRM adapts structures from resolved recurring events in four stages. It constructs hindsight graphs, uses their factors to retrieve current evidence, selects and reconstructs relevant paths under that evidence, and produces a probabilistic forecast. Resolved events can therefore guide a new forecast without treating their outcomes or premises as facts about the target occurrence.</p>
+<ol class="stages prose">
+      <li>
+        <h3>Hindsight graph construction</h3>
+        <p>For each earlier occurrence in the same family that resolved before the forecast cutoff, ReFoRM builds a graph of factors, predictive relations, and supporting sources from documents available by its resolution. Each graph is reduced to complete root-to-target paths and the conditions under which they apply or fail. Resolved answers, realized values, and historical probabilities are removed.</p>
+      </li>
+      <li>
+        <h3>Retrieving current evidence</h3>
+        <p>Factors in the hindsight graphs guide the search for evidence available before the cutoff, while historical relations, answers, and probabilities stay hidden. The retrieved documents form an evidence ledger that records the target operation, usable baseline, observed signals, supporting sources, and missing information.</p>
+      </li>
+      <li>
+        <h3>Path retrieval and reconstruction</h3>
+        <p>Complete paths that match the ledger are retrieved intact, so each relation stays connected to its surrounding factors. Every relation is then assessed against current evidence instead of being assumed to hold.</p>
+        <dl class="states">
+          <div><dt><i class="dot dot-preserved"></i>Preserved</dt><dd>Current evidence supports the same effect.</dd></div>
+          <div><dt><i class="dot dot-reversed"></i>Reversed</dt><dd>Current evidence supports the opposite effect.</dd></div>
+          <div><dt><i class="dot dot-contradicted"></i>Contradicted</dt><dd>The original relation fails without establishing its opposite.</dd></div>
+          <div><dt><i class="dot dot-unverified"></i>Unverified</dt><dd>Evidence is insufficient to decide.</dd></div>
+        </dl>
+        <p>Paths become active, contradicted, or unresolved according to these assessments. Reconstruction may remain partial, and current evidence always takes precedence over historical structure.</p>
+      </li>
+      <li>
+        <h3>Forecasting with the current structure</h3>
+        <p>The reconstructed structure and the evidence ledger produce a reasoning trace before any option is chosen. Low, central, and high estimates in the target unit are mapped to the public answer boundaries to give the forecast distribution, and weak magnitude support leads to a less concentrated forecast. Historical probabilities are not reused, and no post-hoc calibration is applied.</p>
+      </li>
+    </ol>
+    <p class="prose">The example below follows these stages for a single question. The 2023 meeting plays the role of the resolved occurrence, and the September 2024 meeting is the new target.</p>
+    <div class="example is-wide" id="example">
+      <div class="example-panel">
+      <div class="example-head">
+        <h2 id="example-title">Will the Federal Reserve lower rates at its September&nbsp;2024 meeting?</h2>
+        <dl class="example-dates">
+          <div><dt>Reference meeting</dt><dd>20 Sep 2023</dd></div>
+          <div><dt>Evidence selected through</dt><dd>23 Aug 2024</dd></div>
+          <div><dt>Target meeting</dt><dd>18 Sep 2024</dd></div>
+        </dl>
+      </div>
 
-  <section class="section wrap understanding-section" aria-labelledby="understanding-title"><div class="section-heading"><div class="eyebrow">05 / READ THE RESULTS CLEARLY</div><h2 id="understanding-title">Reasoning quality.<br><em>Evidence, logic, and confidence.</em></h2></div><div class="reasoning-layout"><div class="reasoning-score"><span class="small-label">REASONING QUALITY / OUT OF 5</span><strong>3.73</strong><p>ReFoRM’s mean score, compared with<br>2.86–3.17 for the six baselines.</p><a class="source-link" href="paper.pdf#page=6" target="_blank" rel="noopener">Table 5, pp. 6–7 ↗</a></div><div class="faq-list"><details open><summary>What makes the reasoning better?</summary><p>The paper evaluates evidence grounding, logical validity, prediction alignment, probability justification, and mechanism specificity. ReFoRM scores highest on all five in this analysis.</p></details><details><summary>How broad is this evidence?</summary><p>An LLM judge scored one Gemini 2.5 Flash Lite run across five reasoning dimensions.</p></details><details><summary>Does every financial category improve?</summary><p>ReFoRM beats Direct Forecast on Brier score in four of five categories. Energy and commodities are nearly tied: 0.2186 for ReFoRM versus 0.2183 for Direct Forecast. These category results use one run per model (Table 4).</p></details></div></div></section>
+      <div class="example-body">
+        <div class="example-steps">
+          <ol class="steps" aria-label="Steps of the example">
+            <li><button type="button" data-step="0" aria-pressed="true"><span class="step-num">1</span><span class="step-title">Reuse the 2023 structure</span></button></li>
+            <li><button type="button" data-step="1" aria-pressed="false"><span class="step-num">2</span><span class="step-title">Retrieve current evidence</span></button></li>
+            <li><button type="button" data-step="2" aria-pressed="false"><span class="step-num">3</span><span class="step-title">Assess each relation</span></button></li>
+            <li><button type="button" data-step="3" aria-pressed="false"><span class="step-num">4</span><span class="step-title">Forecast from what holds</span></button></li>
+          </ol>
+          <div class="step-nav">
+            <button type="button" class="btn btn-quiet" id="step-prev" disabled>Back</button>
+            <button type="button" class="btn" id="step-next">Next step</button>
+          </div>
+        </div>
 
-  <section class="paper-section" id="paper" aria-labelledby="paper-title"><div class="wrap section"><div class="paper-intro"><div class="eyebrow">GO DEEPER / THE PAPER</div><h2 id="paper-title">Read the complete study.</h2><p class="paper-subtitle">Full methodology, experiments, and evaluation.</p><div class="paper-actions"><a class="button light" href="paper.pdf" target="_blank" rel="noopener">Read the full paper <span aria-hidden="true">↗</span></a><button class="button outline-light" id="copy-citation">Copy citation <span aria-hidden="true">⧉</span></button></div><p id="copy-status" class="copy-status" role="status"></p></div><div class="citation-panel"><span class="small-label">CITE THIS WORK</span><details class="citation-fallback"><summary>View citation text</summary><pre id="citation-text" tabindex="0"></pre></details></div></div></section>
+        <div class="example-graph">
+          <div class="graph" id="graph" data-step="0">
+            <svg class="graph-edges" id="graph-edges" aria-hidden="true"></svg>
+            <div class="graph-factors" role="group" aria-label="Factors in the reasoning structure. Select one to compare its evidence.">
+              <button type="button" class="factor" data-factor="inflation" aria-pressed="true">
+                <span class="factor-name">Inflation trend</span>
+                <span class="relation" data-relation="inflation"><span class="relation-sign"></span><span class="relation-label"></span></span>
+                <span class="factor-signal" data-signal="inflation"></span>
+              </button>
+              <button type="button" class="factor" data-factor="labor" aria-pressed="false">
+                <span class="factor-name">Labor conditions</span>
+                <span class="relation" data-relation="labor"><span class="relation-sign"></span><span class="relation-label"></span></span>
+                <span class="factor-signal" data-signal="labor"></span>
+              </button>
+              <button type="button" class="factor" data-factor="credit" aria-pressed="false">
+                <span class="factor-name">Credit conditions</span>
+                <span class="relation" data-relation="credit"><span class="relation-sign"></span><span class="relation-label"></span></span>
+                <span class="factor-signal" data-signal="credit"></span>
+              </button>
+            </div>
+            <div class="node node-case" id="node-case"><span class="node-name">Case for easing</span><span class="node-note" id="case-note"></span></div>
+            <div class="node node-target" id="node-target"><span class="node-name">18 Sep 2024 decision</span><span class="node-note" id="target-note"></span></div>
+          </div>
+          <ul class="graph-legend" aria-label="Legend">
+            <li><i class="key key-historical"></i>2023 relation</li>
+            <li><i class="key key-untested"></i>Not yet tested</li>
+            <li><i class="key key-preserved"></i>Preserved</li>
+            <li><i class="key key-reversed"></i>Reversed</li>
+            <li><i class="key key-unverified"></i>Unverified</li>
+          </ul>
+          <p class="step-desc" id="step-desc" aria-live="polite">The resolved September 2023 meeting provides three paths into the case for easing: inflation, labor, and credit conditions. The paths keep their factors and historical signs. The 2023 decision and its probabilities are removed before the structure is reused.</p>
+        </div>
+      </div>
+
+      <div class="evidence" id="evidence" aria-live="polite">
+        <div class="evidence-head">
+          <h3 id="evidence-title">Inflation trend</h3>
+          <p class="evidence-assessment" id="evidence-assessment"></p>
+        </div>
+        <div class="evidence-cols">
+          <div>
+            <h4>Evidence in September 2023</h4>
+            <p id="evidence-past"></p>
+            <a id="evidence-past-source" href="#" target="_blank" rel="noopener"></a>
+          </div>
+          <div>
+            <h4>Evidence by 23 August 2024</h4>
+            <p id="evidence-current"></p>
+            <a id="evidence-current-source" href="#" target="_blank" rel="noopener"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <p class="example-caption"><b>Worked example.</b> Assembled by hand from public Federal Reserve sources to illustrate the procedure. It is not a model output. Step through the stages, and select a factor to compare its evidence.</p>
+    </div>
+  </section>
+
+  <section class="section" id="results" aria-labelledby="results-h">
+    <h2 class="section-title" id="results-h">Results</h2>
+<p class="prose">We compare ReFoRM with six baselines on the 100 forecast targets using five LLMs: Gemini 2.5 Flash Lite, GPT-5 mini, DeepSeek V3.2, Llama 4 Maverick, and Qwen Plus (2025-07-28). All methods receive the same target specification and only documents available before the forecast cutoff. Relative to Direct Forecast, ReFoRM improves the five-model average from 0.497 to 0.550 in accuracy, from 0.231 to 0.217 in Brier score, and from 0.991 to 0.922 in negative log-likelihood (NLL). It obtains the lowest Brier score and NLL for every model.</p>
+
+    <dl class="baselines">
+      <div><dt>Direct Forecast</dt><dd>Standard retrieval-augmented forecasting with current evidence.</dd></div>
+      <div><dt>Structured Reasoning</dt><dd>Search-enabled graph reasoning over current evidence.</dd></div>
+      <div><dt>Factor Memory</dt><dd>Factor-level forecasting experience from resolved events.</dd></div>
+      <div><dt>Principle Memory</dt><dd>Reusable forecasting principles extracted from resolved events.</dd></div>
+      <div><dt>Case Memory</dt><dd>Episode-level retrieval of resolved cases.</dd></div>
+      <div><dt>Structure Memory</dt><dd>An outcome-redacted historical event graph used without reconstruction.</dd></div>
+    </dl>
+
+    <figure class="chart-figure is-mid">
+      <div class="chart-controls">
+        <div class="segmented" role="group" aria-label="Metric">
+          <button type="button" data-metric="brier" aria-pressed="true">Brier score</button>
+          <button type="button" data-metric="nll" aria-pressed="false">NLL</button>
+          <button type="button" data-metric="accuracy" aria-pressed="false">Accuracy</button>
+        </div>
+        <ul class="chart-legend" aria-label="Legend">
+          <li><i class="lg lg-reform"></i>ReFoRM</li>
+          <li><i class="lg lg-direct"></i>Direct Forecast</li>
+          <li><i class="lg lg-other"></i>Other baselines</li>
+        </ul>
+      </div>
+      <div class="strip" id="strip" role="img" aria-label="Brier score of seven methods for each of five models and their average. ReFoRM has the lowest Brier score for every model."></div>
+      <div class="strip-tip" id="strip-tip" hidden></div>
+      <figcaption id="strip-caption">Brier score for each method and model, as a mean over three runs. Lower is better. Hover over or tap a point to see the method.</figcaption>
+    </figure>
+
+    <figure class="table-figure">
+      <figcaption><b>Forecasting results on the 100 targets.</b> Mean ± standard deviation over three runs. Best and second-best per model and metric are in bold and underlined.</figcaption>
+      <div class="segmented model-tabs" role="group" aria-label="Model">
+        <button type="button" data-model="average" aria-pressed="true">Five-model average</button>
+        <button type="button" data-model="gemini" aria-pressed="false">Gemini 2.5 Flash Lite</button>
+        <button type="button" data-model="gpt" aria-pressed="false">GPT-5 mini</button>
+        <button type="button" data-model="deepseek" aria-pressed="false">DeepSeek V3.2</button>
+        <button type="button" data-model="llama" aria-pressed="false">Llama 4 Maverick</button>
+        <button type="button" data-model="qwen" aria-pressed="false">Qwen Plus</button>
+      </div>
+      <div class="table-scroll">
+        <table class="booktabs numeric" id="results-table">
+          <thead><tr><th scope="col">Method</th><th scope="col">Accuracy ↑</th><th scope="col">Brier ↓</th><th scope="col">NLL ↓</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </figure>
+
+    <p class="prose">ReFoRM also leads on accuracy for four of the five models. On GPT-5 mini, Factor Memory and Case Memory reach 0.520 against 0.513 for ReFoRM. Since neither structured reasoning over current evidence nor direct use of a resolved graph matches ReFoRM, the results support reconstructing historical relations under current evidence rather than carrying them forward.</p>
+
+    <figure class="table-figure is-mid">
+      <figcaption><b>Brier score by category.</b> Pooled across five models using one run per model. Best results are in bold.</figcaption>
+      <div class="table-scroll">
+        <table class="booktabs numeric">
+          <thead><tr><th scope="col">Method</th><th scope="col">Earnings</th><th scope="col">Energy</th><th scope="col">Macro</th><th scope="col">Markets</th><th scope="col">Policy</th><th scope="col">Average</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Direct Forecast</th><td>0.2457</td><td><b>0.2183</b></td><td>0.2466</td><td>0.2116</td><td>0.2126</td><td>0.2270</td></tr>
+            <tr><th scope="row">Structured Reasoning</th><td>0.2443</td><td>0.2693</td><td>0.2606</td><td>0.2376</td><td>0.2187</td><td>0.2461</td></tr>
+            <tr><th scope="row">Factor Memory</th><td>0.2452</td><td>0.2261</td><td>0.2396</td><td>0.2272</td><td><b>0.1897</b></td><td>0.2256</td></tr>
+            <tr><th scope="row">Principle Memory</th><td>0.2588</td><td>0.2226</td><td>0.2588</td><td>0.2227</td><td>0.2167</td><td>0.2359</td></tr>
+            <tr><th scope="row">Case Memory</th><td>0.2667</td><td>0.2300</td><td>0.2655</td><td>0.2257</td><td>0.2236</td><td>0.2423</td></tr>
+            <tr><th scope="row">Structure Memory</th><td>0.2717</td><td>0.2250</td><td>0.2576</td><td>0.2110</td><td>0.2281</td><td>0.2387</td></tr>
+            <tr class="is-ours"><th scope="row">ReFoRM</th><td><b>0.2391</b></td><td>0.2186</td><td><b>0.2250</b></td><td><b>0.2013</b></td><td>0.1967</td><td><b>0.2161</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+
+    <p class="prose">By category, ReFoRM has the lowest average Brier score and the best result in three of the five categories, and it improves on Direct Forecast in four. The gains span earnings, macroeconomics, markets, and monetary policy, while energy is nearly tied at 0.2186 against 0.2183.</p>
+  </section>
+
+  <section class="section" id="analysis" aria-labelledby="analysis-h">
+    <h2 class="section-title" id="analysis-h">Reasoning Analysis</h2>
+<p class="prose">Forecasting scores do not show whether a prediction follows from valid reasoning. After each target resolves, we build a reference graph from post-resolution documents, used only for analysis. Each reasoning trace is decomposed into atomic relations that a blinded judge checks against this graph. ReFoRM has the highest share of verified relations at 56.4%, compared with 50.0% for Factor Memory and 33.6% for Structure Memory, the two strongest baselines on this measure.</p>
+    <p class="prose">A separate LLM judge rated all 700 traces from one Gemini 2.5 Flash Lite run on five dimensions, without seeing the outcome or the forecasting scores. ReFoRM has the highest mean on every dimension, and none of its correct forecasts rests on a trace scored at or below 2.5. These scores are not ground truth and cover one model and one seed, so they serve as supporting evidence.</p>
+
+    <figure class="table-figure is-wide">
+      <figcaption><b>Reasoning scores.</b> Ratings from one to five for a single Gemini 2.5 Flash Lite run. The last column is the share of a method's correct forecasts whose trace scored at or below 2.5.</figcaption>
+      <div class="table-scroll">
+        <table class="booktabs numeric">
+          <thead><tr><th scope="col">Method</th><th scope="col">Grounding</th><th scope="col">Validity</th><th scope="col">Alignment</th><th scope="col">Probability</th><th scope="col">Mechanism</th><th scope="col">Mean</th><th scope="col">Correct, ≤ 2.5</th></tr></thead>
+          <tbody>
+            <tr class="group-row"><th scope="rowgroup" colspan="8">No-memory baselines</th></tr>
+            <tr><th scope="row">Direct Forecast</th><td>3.49</td><td>2.70</td><td>2.93</td><td>2.86</td><td>2.69</td><td>2.93</td><td>24%</td></tr>
+            <tr><th scope="row">Structured Reasoning</th><td>3.01</td><td>2.71</td><td>3.07</td><td>2.54</td><td>2.96</td><td>2.86</td><td>29%</td></tr>
+            <tr class="group-row"><th scope="rowgroup" colspan="8">Resolved-event memory</th></tr>
+            <tr><th scope="row">Factor Memory</th><td>3.58</td><td>2.89</td><td>3.25</td><td>2.81</td><td>3.31</td><td>3.17</td><td>19%</td></tr>
+            <tr><th scope="row">Principle Memory</th><td>3.32</td><td>2.86</td><td>3.07</td><td>2.82</td><td>2.77</td><td>2.97</td><td>30%</td></tr>
+            <tr><th scope="row">Case Memory</th><td>3.22</td><td>2.86</td><td>3.13</td><td>2.75</td><td>2.83</td><td>2.96</td><td>24%</td></tr>
+            <tr><th scope="row">Structure Memory</th><td>3.13</td><td>2.72</td><td>3.09</td><td>2.53</td><td>2.85</td><td>2.86</td><td>37%</td></tr>
+            <tr class="is-ours"><th scope="row">ReFoRM</th><td><b>4.08</b></td><td><b>3.55</b></td><td><b>3.52</b></td><td><b>3.78</b></td><td><b>3.74</b></td><td><b>3.73</b></td><td><b>0%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+
+    <p class="prose">We also ask when reconstruction helps. Each forecast is grouped by how its retrieved relations were assessed, without using its prediction, outcome, or score. The largest Brier reduction over Direct Forecast comes from structures whose relations were reversed or contradicted. When a blinded judge confirms the assessment against the post-resolution graph, mixed and reversed or contradicted structures reduce Brier score by 0.039 and 0.032, while unconfirmed cases show no improvement. The gains depend more on reassessing relations than on carrying them forward unchanged.</p>
+
+    <figure class="bars-figure">
+      <div class="bars" role="img" aria-label="Brier reduction relative to Direct Forecast by assessment profile: supported 0.013, mixed 0.006, reversed or contradicted 0.019, unresolved 0.008.">
+        <div class="bar-row"><span class="bar-label">Supported</span><span class="bar-track"><span class="bar" style="--v:.013"></span></span><span class="bar-value">0.013</span></div>
+        <div class="bar-row"><span class="bar-label">Mixed</span><span class="bar-track"><span class="bar" style="--v:.006"></span></span><span class="bar-value">0.006</span></div>
+        <div class="bar-row"><span class="bar-label">Reversed or contradicted</span><span class="bar-track"><span class="bar" style="--v:.019"></span></span><span class="bar-value">0.019</span></div>
+        <div class="bar-row"><span class="bar-label">Unresolved</span><span class="bar-track"><span class="bar" style="--v:.008"></span></span><span class="bar-value">0.008</span></div>
+        <div class="bar-axis" aria-hidden="true"><span>0</span><span>0.01</span><span>0.02</span></div>
+      </div>
+      <figcaption><b>Brier reduction by assessment profile.</b> Reduction of ReFoRM relative to Direct Forecast across five models from a single run. Supported structures have preserved but no changed relations, mixed structures have both, and unresolved structures have neither.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="cases" aria-labelledby="cases-h">
+    <h2 class="section-title" id="cases-h">Case Studies</h2>
+<p class="prose">Two target occurrences under the same question and current evidence. In the first, evaluating the transferred relations changes the predicted interval. In the second, both methods select the same interval, but only ReFoRM states which driver is established and where the bridge to the target remains unverified.</p>
+
+    <div class="segmented case-tabs" role="tablist" aria-label="Case studies">
+      <button type="button" role="tab" id="case-tab-cpi" aria-controls="case-cpi" aria-selected="true">June 2025 U.S. CPI</button>
+      <button type="button" role="tab" id="case-tab-wmt" aria-controls="case-wmt" aria-selected="false" tabindex="-1">Walmart 2026-Q1 revenue growth</button>
+    </div>
+
+    <article class="case is-mid" id="case-cpi" role="tabpanel" aria-labelledby="case-tab-cpi">
+      <header class="case-head">
+        <h3>Which range will the monthly change in U.S. CPI for June 2025 fall into?</h3>
+        <p class="case-options"><span><b>Below</b> under 0.146%</span><span><b>Within</b> 0.146% to under 0.299%</span><span><b>Above</b> 0.299% or more</span></p>
+      </header>
+      <div class="case-compare">
+        <div class="case-col">
+          <h4>Direct Forecast</h4>
+          <p class="case-summary">Extends the latest aggregate reading.</p>
+          <ol class="trace">
+            <li>May CPI rose 0.10%, a soft recent reading.</li>
+            <li class="flag">Assumes the May slowdown persists into June. <em>Unsupported assumption.</em></li>
+            <li>Estimates June at 0.099%, below the 0.146% boundary.</li>
+          </ol>
+          <p class="case-pick">Predicts <b>Below</b> with probability 0.85</p>
+        </div>
+        <div class="case-col is-ours">
+          <h4>ReFoRM</h4>
+          <p class="case-summary">Balances the component pressures.</p>
+          <ol class="trace">
+            <li>Uses the May reading of 0.10% as the baseline.</li>
+            <li>Housing pressure remains elevated, energy and food show no strong direction, and the soft May reading still moderates.</li>
+            <li>Estimates June at about 0.20%, inside the middle interval.</li>
+          </ol>
+          <p class="case-pick">Predicts <b>Within</b> with probability 0.60</p>
+        </div>
+      </div>
+      <figure class="numberline-figure">
+        <div class="numberline" role="img" aria-label="Number line with boundaries at 0.146 and 0.299 percent. Direct Forecast estimates 0.099 percent, in the Below interval. ReFoRM estimates about 0.20 percent, in the Within interval.">
+          <div class="nl-zone nl-below"><span>Below</span></div>
+          <div class="nl-zone nl-within"><span>Within</span></div>
+          <div class="nl-zone nl-above"><span>Above</span></div>
+          <div class="nl-tick is-minor" style="--x:0"><span>0%</span></div>
+          <div class="nl-tick" style="--x:.146"><span>0.146%</span></div>
+          <div class="nl-tick" style="--x:.299"><span>0.299%</span></div>
+          <div class="nl-mark nl-direct" style="--x:.099"><span>Direct Forecast,<br class="nl-br"> 0.099%</span></div>
+          <div class="nl-mark nl-ours" style="--x:.20"><span>ReFoRM,<br class="nl-br"> about 0.20%</span></div>
+        </div>
+        <figcaption>The two estimates fall on opposite sides of the lower boundary. The question resolved as Within. All six baselines predicted Below.</figcaption>
+      </figure>
+    </article>
+
+    <article class="case is-mid" id="case-wmt" role="tabpanel" aria-labelledby="case-tab-wmt" hidden>
+      <header class="case-head">
+        <h3>Which range will Walmart's revenue-growth acceleration for 2026-Q1 fall into?</h3>
+        <p class="case-options"><span><b>Below</b> under −1.385 pp</span><span><b>Within</b> −1.385 to under 1.349 pp</span><span><b>Above</b> 1.349 pp or more</span></p>
+      </header>
+      <div class="case-compare">
+        <div class="case-col">
+          <h4>Direct Forecast</h4>
+          <p class="case-summary">Falls back to a base rate.</p>
+          <ol class="trace">
+            <li>Positive business drivers and consumer headwinds point in opposite directions.</li>
+            <li class="flag">Finds no support for the exact size of the acceleration. <em>Gap filled with a base rate.</em></li>
+            <li>Uses a near-zero estimate of −0.018 pp, inside the middle interval.</li>
+          </ol>
+          <p class="case-pick">Predicts <b>Within</b> with probability 0.50</p>
+        </div>
+        <div class="case-col is-ours">
+          <h4>ReFoRM</h4>
+          <p class="case-summary">Separates direction from magnitude.</p>
+          <ol class="trace">
+            <li>Raised guidance, 27% e-commerce growth, and continued grocery growth support positive revenue momentum.</li>
+            <li>Positive momentum makes a result below the range unlikely.</li>
+            <li class="note">The bridge from these drivers to acceleration of 1.349 pp or more remains unverified. <em>Stated as unverified.</em></li>
+          </ol>
+          <p class="case-pick">Predicts <b>Within</b> with probability 0.65</p>
+        </div>
+      </div>
+      <figure class="probs-figure">
+        <div class="table-scroll">
+          <table class="probs">
+            <thead><tr><th scope="col">Outcome</th><th scope="col">Direct Forecast</th><th scope="col">ReFoRM</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Below</th><td><span class="pbar"><i style="--p:.25"></i></span><span class="pval">0.25</span></td><td class="is-ours"><span class="pbar"><i style="--p:.05"></i></span><span class="pval">0.05</span></td></tr>
+              <tr class="is-outcome"><th scope="row">Within <span class="outcome-tag">outcome</span></th><td><span class="pbar"><i style="--p:.50"></i></span><span class="pval">0.50</span></td><td class="is-ours"><span class="pbar"><i style="--p:.65"></i></span><span class="pval">0.65</span></td></tr>
+              <tr><th scope="row">Above</th><td><span class="pbar"><i style="--p:.25"></i></span><span class="pval">0.25</span></td><td class="is-ours"><span class="pbar"><i style="--p:.30"></i></span><span class="pval">0.30</span></td></tr>
+            </tbody>
+            <tfoot><tr><th scope="row">Brier score</th><td>0.1250</td><td class="is-ours">0.0717</td></tr></tfoot>
+          </table>
+        </div>
+        <figcaption>Both methods select Within, which is the realized outcome. ReFoRM moves probability away from Below and receives a lower Brier score.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section class="section" id="collaboration" aria-labelledby="collaboration-h">
+    <h2 class="section-title" id="collaboration-h">Collaboration</h2>
+    <div class="collab-card">
+      <img src="assets/kakaobank-symbol-black.png" alt="KakaoBank" width="48" height="60">
+      <div>
+        <p class="collab-card-lead">This research was conducted in collaboration with KakaoBank.</p>
+        <p>KakaoBank researchers Daehee Han, Seonghun Jeong, and Youngjun Kwak are co-authors of the paper. Daehee Han is an equal-contribution first author, and Youngjun Kwak is a co-corresponding author.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="citation" aria-labelledby="citation-h">
+    <h2 class="section-title" id="citation-h">Citation</h2>
+<div class="bibtex">
+      <pre id="bibtex" tabindex="0">@article{jin2026hindsight,
+  title={From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events},
+  author={Jin, Sangjin and Lee, Junhyeong and Han, Daehee and Kim, Kangmin and Park, Suhwan and Jeong, Seonghun and Park, Daekyung and Szpruch, Lukasz and Wang, Zhangyang and Choi, Chanyeol and others},
+  journal={Available at SSRN 7475378},
+  year={2026}
+}</pre>
+      <button type="button" class="btn btn-quiet bibtex-copy" id="copy-bibtex">Copy BibTeX</button>
+      <p class="copy-status" id="copy-status" role="status"></p>
+    </div>
+  </section>
+
 </main>
-<footer class="wrap site-footer"><a class="wordmark" href="#">ReFoRM<span class="wordmark-dot">.</span></a><a href="#main">Back to top ↑</a></footer>
+
+<footer class="site-footer">
+  <p class="footer-collab"><img src="assets/kakaobank-symbol-black.png" alt="" width="14" height="18">ReFoRM is a research collaboration between UNIST and KakaoBank.</p>
+  <p class="footer-links"><a href="paper.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener">Code</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener">SSRN</a><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a><a href="#top">Back to top</a></p>
+</footer>
 </body>
 </html>

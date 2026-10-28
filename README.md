@@ -1,28 +1,24 @@
-# ICAIF 2026 — ReFoRM
+# ReFoRM project page (ICAIF 2026)
 
-Research website for **From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events**.
+Project page for **From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events**.
 
-## Website
+Published with GitHub Pages from the root of the `main` branch. No build step is needed.
 
-Published with GitHub Pages from the root of the `main` branch. No installation or build is needed.
+Official implementation: https://github.com/jinsaaang/reform. The BibTeX on the page is the author-provided SSRN citation (abstract 7475378).
 
-Official paper implementation: https://github.com/jinsaaang/reform. Paper and Code links appear together in the header and introduction. The displayed and copied BibTeX use the author-provided SSRN citation.
+## Files
 
-## Contents
-
-- `index.html`: paper introduction, compact author credits, results, qualitative cases, and an ICAIF 2026 header link.
-- `styles.css`: responsive layout and reduced-motion support.
-- `polish.js`: progressive scroll reveals, reading progress, and a fine-pointer hero glow with reduced-motion handling.
-- `app.js`: methodology navigation, model comparisons, and case controls.
-- `finance-example.js`: source-linked Fed teaching graph with preserved, reversed-contribution, and excluded-unverified paths.
+- `index.html`: centered title block with the KakaoBank collaboration credit, overview figure, abstract, recurring financial events, method with the interactive FOMC example, results, reasoning analysis, case studies, collaboration, and citation.
+- `styles.css`: layout, light and dark color schemes, responsive rules, and reduced-motion support.
+- `app.js`: the interactive example, the results chart and Table 3 model switch, case-study tabs, BibTeX copy, and section highlighting in the header.
+- `assets/fig-motivation.webp`, `assets/fig-overview.webp`: Figures 1 and 2 cropped from `paper.pdf` at 300 dpi.
+- `assets/fonts/`: self-hosted Libertinus Serif and Libertinus Sans (SIL Open Font License, see `LICENSE-OFL.txt`).
+- `assets/og-image.png`: link preview image.
+- `assets/kakaobank-symbol-black.png`: collaboration credit.
 - `paper.pdf`: supplied manuscript, unchanged.
-
-## Conference
-
-The header links to ICAIF 2026: https://icaif2026.org/.
 
 ## Evidence and scope
 
-Benchmark numbers and cases are transcribed or paraphrased from Tables 3–5 and Figure 3 of the manuscript. The Fed graph illustrates path reconstruction from public Federal Reserve sources. Its selected 2024 evidence predates the target decision. Credit-channel support is marked unverified in this evidence packet.
+Benchmark numbers and cases are transcribed or paraphrased from Tables 1, 3, 4, and 5, Figure 3, and Section 5 of the manuscript. The FOMC example is built by hand from public Federal Reserve sources to illustrate path reconstruction and is not a model output. Its selected 2024 evidence predates the target decision, and credit-channel support is marked unverified.
 
-The page and all local assets use relative links so they work under a GitHub Pages project path.
+All links to local files are relative, so the page works under a GitHub Pages project path.
