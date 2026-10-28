@@ -199,10 +199,11 @@ document.querySelectorAll('[data-metric]').forEach(button=>button.addEventListen
   renderResults();
 }));
 
-const citation = `@misc{jin_reform,
-  title = {From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events},
-  author = {Jin, Sangjin and Lee, Junhyeong and Han, Daehee and Kim, Kangmin and Park, Suhwan and Jeong, Seonghun and Park, Daekyung and Szpruch, Lukasz and Wang, Zhangyang and Choi, Chanyeol and Kwak, Youngjun and Lee, Yongjae},
-  note = {Research manuscript}
+const citation = `@article{jin2026hindsight,
+  title={From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events},
+  author={Jin, Sangjin and Lee, Junhyeong and Han, Daehee and Kim, Kangmin and Park, Suhwan and Jeong, Seonghun and Park, Daekyung and Szpruch, Lukasz and Wang, Zhangyang and Choi, Chanyeol and others},
+  journal={Available at SSRN 7475378},
+  year={2026}
 }`;
 document.querySelector('#citation-text').textContent=citation;
 document.querySelector('#copy-citation').addEventListener('click',async()=>{

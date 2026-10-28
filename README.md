@@ -6,6 +6,8 @@ Research website for **From Hindsight to Foresight: Adapting Reusable Reasoning 
 
 Published with GitHub Pages from the root of the `main` branch. No installation or build is needed.
 
+Official paper implementation: https://github.com/jinsaaang/reform. Paper and Code links appear together in the header and introduction. The displayed and copied BibTeX use the author-provided SSRN citation.
+
 ## Contents
 
 - `index.html`: paper introduction, compact author credits, results, qualitative cases, and an ICAIF 2026 header link.
