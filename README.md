@@ -10,6 +10,7 @@ Published with GitHub Pages from the root of the `main` branch. No installation 
 
 - `index.html`: paper introduction, compact author credits, results, qualitative cases, and an ICAIF 2026 header link.
 - `styles.css`: responsive layout and reduced-motion support.
+- `polish.js`: progressive scroll reveals, reading progress, and a fine-pointer hero glow with reduced-motion handling.
 - `app.js`: methodology navigation, model comparisons, and case controls.
 - `finance-example.js`: source-linked Fed teaching graph with preserved, reversed-contribution, and excluded-unverified paths.
 - `paper.pdf`: supplied manuscript, unchanged.
