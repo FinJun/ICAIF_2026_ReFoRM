@@ -8,7 +8,7 @@ const fedPaths = {
     pastSignal:'Moderating, still elevated', currentSignal:'Progress toward 2% resumes',
     past:'In September 2023, Powell described moderating inflation, but policy remained restrictive and inflation was still above the goal.',
     current:'By 23 August 2024, Powell reported renewed inflation progress and greater confidence in a sustainable return to 2%.',
-    interpretation:'Preserve the positive contribution of inflation progress to the easing case. This does not transfer the past policy decision.',
+    interpretation:'Retain inflation progress as support for easing.',
     pastUrl:'https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20230920.pdf#page=2',
     currentUrl:'https://www.federalreserve.gov/newsevents/speech/powell20240823a.htm',
     currentLink:'Powell’s 23 Aug 2024 speech ↗'
@@ -18,19 +18,19 @@ const fedPaths = {
     title:'The labor signal shifts from restraining easing to supporting it.',
     pastSignal:'Jobs remain strong', currentSignal:'Cooling; July jobless rate 4.3%',
     past:'The 2023 press conference described a tight labor market. August unemployment was 3.8%, and labor demand still exceeded available workers.',
-    current:'Powell’s August 2024 speech reported July unemployment of 4.3% and considerable cooling. Further labor-market cooling was not welcome.',
-    interpretation:'Change this factor’s contribution to easing from − to +. Conditions changed; the causal arrow did not reverse. This is a teaching interpretation of the policy balance.',
+    current:'Powell’s August 2024 speech reported July unemployment of 4.3% and considerable cooling. He emphasized protecting the labor market from further cooling.',
+    interpretation:'The labor signal’s contribution to easing changes from − to + as cooling replaces tightness.',
     pastUrl:'https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20230920.pdf#page=2',
     currentUrl:'https://www.federalreserve.gov/newsevents/speech/powell20240823a.htm',
     currentLink:'Powell’s 23 Aug 2024 speech ↗'
   },
   credit: {
     name:'Credit conditions', state:'removed', badge:'REMOVED · UNVERIFIED', sign:'?', pastSign:'+',
-    title:'Withhold a historical credit path that this packet does not re-establish.',
-    pastSignal:'Tighter credit headwinds', currentSignal:'Current link not re-established',
+    title:'Exclude the unverified credit path.',
+    pastSignal:'Tighter credit headwinds', currentSignal:'Current support unverified',
     past:'The September 2023 statement expected tighter credit conditions to weigh on activity, hiring, and inflation, with an uncertain impact.',
-    current:'The selected August 2024 speech does not re-establish that specific credit channel for this target. This packet is deliberately limited.',
-    interpretation:'Remove the path from active forecast support as UNVERIFIED, not contradicted. This does not establish that credit risks disappeared; additional evidence could restore the path.',
+    current:'Credit-channel support remains unverified in the August 2024 source.',
+    interpretation:'Mark the path UNVERIFIED and exclude it from current support pending further evidence.',
     pastUrl:'https://www.federalreserve.gov/newsevents/pressreleases/monetary20230920a.htm',
     currentUrl:'https://www.federalreserve.gov/newsevents/speech/powell20240823a.htm',
     currentLink:'Inspect the selected 2024 source ↗'
@@ -67,7 +67,7 @@ function renderFedGraph() {
   document.querySelector('#finance-show-all').setAttribute('aria-pressed',String(current && fedFocus === 'all'));
   document.querySelector('#finance-view-label').textContent = current ? (fedFocus === 'all' ? 'CURRENT STRUCTURE / ALL CHANGES' : 'RECHECKING ONE HISTORICAL PATH') : 'HISTORICAL STRUCTURE / 2023';
   document.querySelector('#finance-balance-note').textContent = current && fedFocus === 'all' ? 'Inflation + labor support retained.' : 'Each path needs current support.';
-  document.querySelector('#finance-graph-status').textContent = !current ? 'Past scaffold only. Hover an evidence card to test a path.' : fedFocus === 'all' ? 'All three paths assessed: one preserved, one contribution reversed, one excluded as unverified.' : 'Only the '+fedPaths[fedFocus].name.toLowerCase()+' path is rechecked. Other links remain historical until inspected.';
+  document.querySelector('#finance-graph-status').textContent = !current ? '2023 paths. Hover a card to apply the 2024 evidence.' : fedFocus === 'all' ? '2024 structure: inflation preserved, labor contribution reversed, credit unverified.' : 'Rechecked: '+fedPaths[fedFocus].name.toLowerCase()+'. Other paths: 2023 structure.';
 
   const selected = fedPaths[fedFocus === 'all' ? 'credit' : fedFocus];
   document.querySelector('#finance-inspector').dataset.state = current ? selected.state : 'historical';
@@ -78,7 +78,7 @@ function renderFedGraph() {
   document.querySelector('#finance-past-source').href = selected.pastUrl;
   document.querySelector('#finance-current-source').href = selected.currentUrl;
   document.querySelector('#finance-current-source').textContent = selected.currentLink;
-  document.querySelector('#finance-interpretation').textContent = current ? selected.interpretation : 'This historical link is a candidate for investigation, not current forecast support. Use the selected 2024 evidence to test it.';
+  document.querySelector('#finance-interpretation').textContent = current ? selected.interpretation : 'Use the 2024 evidence to assess this historical path.';
 }
 
 function inspectFedPath(key) {

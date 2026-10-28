@@ -5,29 +5,29 @@ const stages = [
     kicker: 'REFERENCE / SEPTEMBER 2023',
     title: 'Keep the paths.<br>Drop old answers.',
     description: 'From the resolved September 2023 event, retain connected paths linking inflation, labor, and credit conditions to the policy balance. Remove the old answer and probabilities before reusing this structure.',
-    principle: 'A historical relationship proposes what to check. It does not establish a fact about the new occurrence.',
+    principle: 'Use past relationships to choose which current evidence to investigate.',
     diagram: '<div class="diagram-caption">HISTORICAL MEMORY / 20 SEP 2023</div><div class="diagram-ledger"><h4>Three paths to revisit</h4><div class="ledger-row"><span>Inflation moderation</span><b>Progress, but still elevated</b></div><div class="ledger-row"><span>Labor conditions</span><b>Still tight</b></div><div class="ledger-row"><span>Credit conditions</span><b>Headwinds</b></div></div>'
   },
   {
     kicker: 'EVIDENCE / AUGUST 2024',
     title: 'Find new evidence.<br>Name the gaps.',
     description: 'Use these factors to retrieve pre-target evidence. In his 23 August 2024 speech, Powell describes renewed inflation progress and a cooler labor market. Keep the old credit path marked as an evidence gap.',
-    principle: 'Only evidence available before the target can support the current forecast. The September decision is still withheld.',
-    diagram: '<div class="diagram-caption">SELECTED EVIDENCE / BY 23 AUG 2024</div><div class="diagram-ledger"><h4>What changed?</h4><div class="ledger-row"><span>Inflation</span><b>Progress resumed</b></div><div class="ledger-row"><span>Labor</span><b>Cooled considerably</b></div><div class="ledger-row"><span>Old credit channel</span><b>Not re-established here</b></div></div>'
+    principle: 'Build the forecast from sources published before the target date.',
+    diagram: '<div class="diagram-caption">SELECTED EVIDENCE / BY 23 AUG 2024</div><div class="diagram-ledger"><h4>What changed?</h4><div class="ledger-row"><span>Inflation</span><b>Progress resumed</b></div><div class="ledger-row"><span>Labor</span><b>Cooled considerably</b></div><div class="ledger-row"><span>Old credit channel</span><b>Unverified</b></div></div>'
   },
   {
     kicker: 'RECONSTRUCT / TEST EACH PATH',
     title: 'Retest the links.<br>Keep what holds.',
-    description: 'Recheck each historical path with the 2024 evidence. Inflation progress keeps its role; labor cooling changes its contribution to easing. The credit path is excluded from active support because this packet does not verify it.',
-    principle: 'An unverified path can be excluded from active support without being declared false. Explore the actual links below.',
-    diagram: '<div class="diagram-caption">EXPLORE THE EVENT GRAPH BELOW</div><div class="stage-path-summary"><div><span class="path-summary-state kept">PRESERVED</span><p>Inflation progress → easing support</p></div><div><span class="path-summary-state reversed">REVERSED CONTRIBUTION</span><p>Tight labor → cooler labor</p></div><div><span class="path-summary-state removed">EXCLUDED · UNVERIFIED</span><p>Old credit channel → not carried forward</p></div></div>'
+    description: 'Recheck the 2024 evidence: retain inflation progress, update the labor contribution, and mark the credit path unverified.',
+    principle: 'Carry verified relations into the forecast and keep unresolved links visible.',
+    diagram: '<div class="diagram-caption">EXPLORE THE EVENT GRAPH BELOW</div><div class="stage-path-summary"><div><span class="path-summary-state kept">PRESERVED</span><p>Inflation progress → easing support</p></div><div><span class="path-summary-state reversed">REVERSED CONTRIBUTION</span><p>Tight labor → cooler labor</p></div><div><span class="path-summary-state removed">EXCLUDED · UNVERIFIED</span><p>Credit channel → unverified</p></div></div>'
   },
   {
     kicker: 'FORECAST / CURRENT STRUCTURE',
     title: 'Form a forecast.<br>Keep uncertainty.',
-    description: 'Use only supported current paths to reason about the September decision. Easing direction does not establish cut size. In ReFoRM, a current estimate is mapped to answer boundaries and probabilities while uncertainty remains visible.',
-    principle: 'This teaching graph explains how support changes. It does not invent a ReFoRM probability or reveal the target outcome.',
-    diagram: '<div class="diagram-caption">CURRENT STRUCTURE → NEXT DECISION</div><div class="diagram-ledger forecast-reasoning"><h4>A stronger easing case</h4><div class="ledger-row"><span>Inflation progress</span><b>Retained support</b></div><div class="ledger-row"><span>Labor cooling</span><b>Updated support</b></div><div class="ledger-row"><span>Cut size</span><b>Not established by this graph</b></div></div>'
+    description: 'Combine supported paths into a current estimate. Map that estimate to the answer boundaries, then assign probabilities that reflect the remaining uncertainty.',
+    principle: 'Check the estimate, selected interval, and probabilities for consistency.',
+    diagram: '<div class="diagram-caption">CURRENT STRUCTURE → NEXT DECISION</div><div class="diagram-ledger forecast-reasoning"><h4>A stronger easing case</h4><div class="ledger-row"><span>Inflation progress</span><b>Retained support</b></div><div class="ledger-row"><span>Labor cooling</span><b>Updated support</b></div><div class="ledger-row"><span>Cut size</span><b>Unresolved</b></div></div>'
   }
 ];
 
@@ -95,12 +95,12 @@ const cases = [
     directOption:'BELOW · 85%',
     reformTitle:'Balance the component pressures.',
     reformSteps:[
-      {label:'ESTABLISH A BASELINE',text:'Use May’s +0.10% as the starting point, not the whole forecast.'},
+      {label:'ESTABLISH A BASELINE',text:'Set May’s +0.10% as the baseline for the component analysis.'},
       {label:'RECONSTRUCT THE MECHANISM',text:'Balance housing pressure against May moderation; energy and food are approximately neutral.'},
       {label:'MAP TO THE TARGET',text:'Estimate June at about +0.20%, inside the middle interval.'}
     ],
     reformOption:'WITHIN · 60%',
-    takeaway:'The key change is the bridge to June: ReFoRM uses component relationships instead of extending the latest aggregate reading. That changes the chosen interval from BELOW to WITHIN.'
+    takeaway:'Balancing component pressures shifts the June estimate from +0.099% to approximately +0.20%, changing the selected interval from BELOW to WITHIN.'
   },
   {
     period:'CASE II / WALMART 2026-Q1',
@@ -120,12 +120,12 @@ const cases = [
     reformSteps:[
       {label:'IDENTIFY SUPPORTED DRIVERS',text:'Raised guidance, 27% e-commerce growth, and grocery growth support revenue momentum.'},
       {label:'USE THE DIRECTIONAL SIGNAL',text:'Positive momentum makes a below-range realization less likely.'},
-      {label:'KEEP THE MISSING LINK VISIBLE',text:'Acceleration at or above +1.349 pp remains unverified. Momentum alone does not establish ABOVE.',caution:true}
+      {label:'KEEP THE MISSING LINK VISIBLE',text:'The link to acceleration at or above +1.349 pp remains unverified.',caution:true}
     ],
     reformOption:'WITHIN · 65%',
     directProbabilities:[25,50,25],
     reformProbabilities:[5,65,30],
-    takeaway:'Both choose WITHIN, but ReFoRM shifts probability mainly away from BELOW while keeping the acceleration gap explicit. The paper reports Brier scores of 0.1250 for Direct Forecast and 0.0717 for ReFoRM.'
+    takeaway:'Both select WITHIN. ReFoRM lowers BELOW from 25% to 5% and raises WITHIN from 50% to 65%. Direct Forecast scores 0.1250 Brier; ReFoRM scores 0.0717.'
   }
 ];
 function setCase(index) {
@@ -202,7 +202,7 @@ document.querySelectorAll('[data-metric]').forEach(button=>button.addEventListen
 const citation = `@misc{jin_reform,
   title = {From Hindsight to Foresight: Adapting Reusable Reasoning Structures from Recurring Financial Events},
   author = {Jin, Sangjin and Lee, Junhyeong and Han, Daehee and Kim, Kangmin and Park, Suhwan and Jeong, Seonghun and Park, Daekyung and Szpruch, Lukasz and Wang, Zhangyang and Choi, Chanyeol and Kwak, Youngjun and Lee, Yongjae},
-  note = {Research manuscript; bibliographic fields transcribed from the supplied PDF}
+  note = {Research manuscript}
 }`;
 document.querySelector('#citation-text').textContent=citation;
 document.querySelector('#copy-citation').addEventListener('click',async()=>{

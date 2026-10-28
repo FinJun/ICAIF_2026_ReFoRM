@@ -81,7 +81,6 @@ sup {font-size:.65em;color:var(--accent);margin-left:2px}
 .art-forecast small,.art-forecast .art-index {color:#366f66}
 .art-forecast strong {font-size:19px}
 .art-forecast>span:last-child {font-size:25px;margin-left:auto;color:#1e7b6a}
-.art-caption {font-size:11px;color:#a6c8cf;line-height:1.6;margin:17px 0 0}
 .paper-masthead h1 {font-size:clamp(52px,5.8vw,78px);line-height:1.04;letter-spacing:-3.2px;font-weight:500;margin-bottom:23px}
 .paper-authors {display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px 18px;font-size:14px;line-height:1.8;color:#4c6170}
 .paper-authors>span {white-space:nowrap}
@@ -232,7 +231,6 @@ sup {font-size:.65em;color:var(--accent);margin-left:2px}
 .finance-evidence-comparison p {font-size:17px;line-height:1.85;color:#476874;margin:13px 0}
 .finance-interpretation {border-top:1px solid #d8e4e7;padding-top:20px;font-size:16px;line-height:1.85;color:#396370;margin:23px 0 0}
 .finance-interpretation strong {display:block;color:#275765;font-weight:600;margin-bottom:7px}
-.finance-provenance {font-size:12px;line-height:1.85;color:#587680;margin:18px 0 0}
 .pill {display:inline-block;font-size:12px;line-height:1.6;font-weight:600;letter-spacing:.6px;color:#08645a;padding:6px 9px;background:#e2f0e9;border-radius:4px}
 .method-text h3 {font-size:33px;line-height:1.2;letter-spacing:-.8px;margin:20px 0}
 .method-text>p {font-size:18px;line-height:1.85;color:var(--muted)}
@@ -291,7 +289,6 @@ th,td {text-align:left;border-bottom:1px solid #dce6eb;padding:13px 12px;font-va
 thead th {background:#edf4f6}
 caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
 .results-nuance {display:flex;align-items:flex-start;gap:20px;margin-top:27px}
-.asterisk {font-size:33px;color:#2f7e7c;line-height:1.4}
 .results-nuance p {font-size:16px;color:var(--muted);line-height:1.85;margin:0}
 .results-nuance strong {color:#204f60}
 
@@ -371,16 +368,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
 .faq-list details[open] summary:after {content:'−'}
 .faq-list details p {font-size:17px;line-height:1.85;color:var(--muted);margin:0 20px 24px 0}
 
-.conference-section {padding-block:0 70px;scroll-margin-top:35px}
-.conference-card {display:grid;grid-template-columns:1.1fr 1fr;gap:55px;padding:38px 42px;border:1px solid #bfd6d6;border-radius:11px;background:linear-gradient(120deg,#e9f3ef,#edf4f8)}
-.conference-intro .eyebrow {font-size:11px;letter-spacing:1px;color:#3d716b;display:block;margin-bottom:12px}
-.conference-intro h2 {font-size:39px;letter-spacing:-1px;line-height:1.2;margin:0;color:#174a53}
-.conference-intro p {font-size:19px;line-height:1.65;color:#426773;margin:15px 0 17px}
-.conference-details {margin:0;display:grid;align-content:center;gap:20px}
-.conference-details>div {padding-bottom:17px;border-bottom:1px solid #cadfdb}
-.conference-details>div:last-child {border-bottom:0;padding-bottom:0}
-.conference-details dt {font-size:11px;letter-spacing:1px;font-weight:600;color:#4e7979;line-height:1.6;margin-bottom:6px}
-.conference-details dd {font-size:21px;line-height:1.5;font-weight:500;color:#284f5e;margin:0}
 .paper-section {background:var(--deep);color:#fff}
 .paper-section .section {display:grid;grid-template-columns:1.15fr 1fr;gap:70px;padding-block:75px}
 .paper-section .eyebrow {color:#9fd5ca}
@@ -398,7 +385,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
 .citation-fallback pre {font-size:14px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;background:#193c50;padding:18px;border:1px solid #4c6f81;border-radius:5px;max-width:100%;margin-bottom:0}
 .site-footer {display:flex;align-items:center;justify-content:space-between;gap:35px;padding-block:32px}
 .site-footer .wordmark {font-size:26px}
-.site-footer p {font-size:14px;line-height:1.8;color:var(--muted);margin:0}
 .site-footer>a:last-child {font-size:15px;color:#17685f;white-space:nowrap}
 .skip-link {position:fixed;left:15px;top:-100px;background:var(--deep);color:white;padding:12px;z-index:100}
 .skip-link:focus {top:15px}
@@ -421,10 +407,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .chart-header {gap:25px}
 }
 @media(max-width:800px) {
-  .conference-card {gap:35px;padding:32px}
-  .conference-intro h2 {font-size:35px}
-  .conference-intro p {font-size:18px}
-  .conference-details dd {font-size:19px}
   .finance-pan-hint {display:block;font-size:13px;line-height:1.8;color:#53737b;margin:0 0 15px}
   .finance-heading {grid-template-columns:1fr;gap:20px}
   .finance-heading h3 {font-size:31px}
@@ -447,7 +429,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .masthead-art strong {font-size:23px}
   .masthead-art small {font-size:11px}
   .art-memory>div>span {font-size:14px}
-  .art-caption {font-size:12px}
   .method-explorer {padding:23px}
   .explorer-intro {align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:22px}
   .method-tabs:before {display:none}
@@ -501,15 +482,8 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .reasoning-score {max-width:500px}
   .paper-section .section {grid-template-columns:1fr;gap:30px;padding-block:60px}
   .site-footer {flex-wrap:wrap}
-  .site-footer p {order:3;width:100%}
 }
 @media(max-width:540px) {
-  .conference-section {padding-bottom:50px}
-  .conference-card {grid-template-columns:1fr;gap:30px;padding:28px 24px}
-  .conference-intro h2 {font-size:34px}
-  .conference-intro p {font-size:18px}
-  .conference-details {gap:17px}
-  .conference-details dd {font-size:20px}
   .method-copy-stack {row-gap:18px}
   .finance-lab {padding-top:27px;margin-top:28px}
   .finance-heading h3 {font-size:28px;letter-spacing:-.5px}
@@ -527,7 +501,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .finance-inspector h4 {font-size:23px}
   .finance-evidence-comparison p {font-size:17px}
   .finance-graph-status {font-size:13px}
-  .finance-provenance {font-size:12px}
   .masthead-subtitle {font-size:22px;line-height:1.5;margin-bottom:20px}
   .masthead-summary {font-size:17px;line-height:1.85}
   .masthead-actions {margin-top:25px;gap:22px}
@@ -646,7 +619,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .data-details {font-size:15px}
   .results-nuance {gap:13px}
   .results-nuance p {font-size:16px}
-  .asterisk {font-size:29px}
   .case-tabs {gap:9px}
   .case-tabs button {font-size:13px;padding:14px 11px;gap:9px}
   .case-tabs button>span:first-child {font-size:16px}
@@ -675,7 +647,6 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   .citation-panel>p {font-size:17px}
   .citation-fallback pre {font-size:14px;padding:15px}
   .site-footer {padding-block:28px;gap:24px}
-  .site-footer p {font-size:14px}
 }
 @media(prefers-reduced-motion:reduce) {
   html {scroll-behavior:auto}
