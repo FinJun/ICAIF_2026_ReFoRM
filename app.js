@@ -82,6 +82,7 @@
   let step = 0;
   let focus = 'inflation';
   let edges = null;
+  let edgeHits = null;
 
   function relation(key, s) {
     const f = FACTORS[key];
@@ -115,12 +116,25 @@
     });
     svg.appendChild(defs);
     edges = {};
+    edgeHits = {};
     FACTOR_KEYS.concat('out').forEach((key, i) => {
       const path = document.createElementNS(ns, 'path');
       path.setAttribute('class', 'edge');
+      if (key !== 'out') path.dataset.factorEdge = key;
       path.style.setProperty('--i', key === 'out' ? 3 : i);
       svg.appendChild(path);
       edges[key] = path;
+    });
+    FACTOR_KEYS.forEach(key => {
+      const hit = document.createElementNS(ns, 'path');
+      hit.setAttribute('class', 'edge-hit');
+      hit.dataset.factorEdge = key;
+      hit.setAttribute('fill', 'none');
+      hit.setAttribute('stroke', 'transparent');
+      hit.setAttribute('stroke-width', '22');
+      hit.setAttribute('pointer-events', 'stroke');
+      svg.appendChild(hit);
+      edgeHits[key] = hit;
     });
   }
 
@@ -141,6 +155,8 @@
       const dx = (x2 - x1) * 0.55;
       const state = relation(key, step).state;
       edges[key].setAttribute('d', `M${x1.toFixed(1)} ${y1.toFixed(1)} C${(x1 + dx).toFixed(1)} ${y1.toFixed(1)} ${(x2 - dx).toFixed(1)} ${y2.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+      edgeHits[key].setAttribute('d', edges[key].getAttribute('d'));
+      edges[key].classList.toggle('is-focused', focus === key);
       edges[key].dataset.state = state;
       edges[key].setAttribute('marker-end', `url(#arrow-${state})`);
     });
@@ -155,6 +171,7 @@
   function renderExample() {
     if (!graph) return;
     graph.dataset.step = String(step);
+    graph.dataset.focus = focus;
     FACTOR_KEYS.forEach(key => {
       const f = FACTORS[key];
       const r = relation(key, step);
@@ -173,7 +190,7 @@
     $('#node-case').toggleAttribute('data-active', step === 3);
     $('#node-target').toggleAttribute('data-active', step === 3);
     $('#step-desc').textContent = STEPS[step].desc;
-    $$('[data-step]').forEach(button => {
+    $$('button[data-step]').forEach(button => {
       const i = Number(button.dataset.step);
       button.setAttribute('aria-pressed', String(i === step));
       button.toggleAttribute('data-done', i < step);
@@ -183,6 +200,18 @@
 
     const f = FACTORS[focus];
     $('#evidence-title').textContent = f.name;
+    const before = $('#relation-before');
+    const after = $('#relation-after');
+    const change = $('#relation-change');
+    if (before) before.textContent = `${f.pastSign} ${f.pastSign === '+' ? 'Supports easing' : 'Restrains easing'}`;
+    if (after) {
+      after.textContent = step < 2 ? 'Not yet tested' : f.state === 'unverified' ? 'No active support' : `${f.sign} ${f.sign === '+' ? 'Supports easing' : 'Restrains easing'}`;
+      after.dataset.state = step < 2 ? 'untested' : f.state;
+    }
+    if (change) {
+      change.textContent = step < 2 ? 'Awaiting assessment' : f.state === 'unverified' ? 'Unverified · excluded from active support' : f.state === 'reversed' ? 'Reversed contribution' : 'Preserved contribution';
+      change.dataset.state = step < 2 ? 'untested' : f.state;
+    }
     const assessment = $('#evidence-assessment');
     if (step < 2) {
       assessment.dataset.state = 'historical';
@@ -210,13 +239,27 @@
 
   if (graph) {
     buildEdges();
-    $$('[data-step]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.step))));
+    $$('button[data-step]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.step))));
     $('#step-prev').addEventListener('click', () => setStep(step - 1));
     $('#step-next').addEventListener('click', () => setStep(step === 3 ? 0 : step + 1));
-    $$('[data-factor]').forEach(button => button.addEventListener('click', () => {
-      focus = button.dataset.factor;
+    const selectFactor = key => {
+      if (!FACTORS[key] || focus === key) return;
+      focus = key;
       renderExample();
-    }));
+    };
+    graph.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      const target = event.target.closest('[data-factor], [data-factor-edge]');
+      if (target && graph.contains(target)) selectFactor(target.dataset.factor || target.dataset.factorEdge);
+    });
+    graph.addEventListener('click', event => {
+      const target = event.target.closest('[data-factor-edge]');
+      if (target) selectFactor(target.dataset.factorEdge);
+    });
+    $$('[data-factor]').forEach(button => {
+      button.addEventListener('click', () => selectFactor(button.dataset.factor));
+      button.addEventListener('focus', () => selectFactor(button.dataset.factor));
+    });
     if ('ResizeObserver' in window) new ResizeObserver(drawEdges).observe(graph);
     window.addEventListener('resize', drawEdges, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawEdges);

@@ -19,8 +19,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/libertinus-serif-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/libertinus-serif-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=main-results-1">
-<script src="app.js?v=3" defer></script>
+<link rel="stylesheet" href="styles.css?v=reading-flow-1">
+<script src="app.js?v=relations-1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -53,6 +53,13 @@
     <p class="venue"><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a></p>
     <h1 id="paper-title">From Hindsight to Foresight<span class="subtitle">Adapting Reusable Reasoning Structures from Recurring Financial Events</span></h1>
 
+    <p class="hero-summary">Reuse past reasoning. Recheck every relationship.<br>Forecast the next financial event.</p>
+    <a class="hero-highlights" href="#results" aria-label="Explore the main results: accuracy 49.7 to 55.0 percent; Brier score 0.231 to 0.217, five-model average">
+      <span><small>ACCURACY ↑</small><strong>49.7% <b aria-hidden="true">→</b> 55.0%</strong></span>
+      <span><small>BRIER SCORE ↓</small><strong>0.231 <b aria-hidden="true">→</b> 0.217</strong></span>
+      <span class="hero-results-link">Five-model average<br><b>Explore results ↗</b></span>
+    </a>
+
     <ul class="authors" aria-label="Authors">
       <li>Sangjin Jin<sup>1,*</sup></li>
       <li>Junhyeong Lee<sup>1,*</sup></li>
@@ -67,6 +74,7 @@
       <li>Youngjun Kwak<sup>2,†</sup></li>
       <li>Yongjae Lee<sup>1,3,†</sup></li>
     </ul>
+    <details class="author-details"><summary>Affiliations & contributions</summary>
     <ul class="affiliations" aria-label="Affiliations">
       <li><sup>1</sup>UNIST</li>
       <li><sup>2</sup>KakaoBank</li>
@@ -75,18 +83,21 @@
       <li><sup>5</sup>The University of Texas at Austin</li>
     </ul>
     <p class="author-notes"><span><sup>*</sup>Equal contribution</span><span><sup>†</sup>Co-corresponding authors</span></p>
+    </details>
 
     <div class="resource-links">
-      <a class="btn btn-solid" href="paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8Z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h5"/></svg>Paper</a>
+      <a class="btn btn-solid" href="paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8Z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h5"/></svg>Read the paper</a>
       <a class="btn btn-solid" href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener"><svg class="fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a>
-      <a class="btn btn-solid" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5 12 4l7.5 5.5M6.5 10.5v7M10 10.5v7M14 10.5v7M17.5 10.5v7M4.5 20h15"/></svg>SSRN</a>
-      <a class="btn btn-solid" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 4.5c-2 0-3 1-3 3v2.5c0 1.2-.8 2-2 2 1.2 0 2 .8 2 2v2.5c0 2 1 3 3 3M15.5 4.5c2 0 3 1 3 3v2.5c0 1.2.8 2 2 2-1.2 0-2 .8-2 2v2.5c0 2-1 3-3 3"/></svg>BibTeX</a>
-    </div>
 
-    <a class="collab-lockup" href="#collaboration">
+
+      <a class="btn btn-demo" href="#example">Explore the method <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="secondary-resources"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener">SSRN</a><a href="#citation">BibTeX</a></p>
+
+    <div class="collab-lockup" id="collaboration">
       <span class="collab-text">Research conducted in collaboration with</span>
-      <span class="collab-brand"><img src="assets/kakaobank-symbol-black.png" alt="" width="22" height="28">KakaoBank</span>
-    </a>
+      <span class="collab-brand"><img src="assets/kakaobank-signature-black.png" alt="KakaoBank" width="4214" height="800"></span>
+    </div>
   </section>
 
   <figure class="teaser figure">
@@ -96,12 +107,22 @@
 
   <section class="section" id="abstract" aria-labelledby="abstract-h">
     <h2 class="section-title" id="abstract-h">Abstract</h2>
+    <ul class="research-takeaways prose">
+      <li><strong>The problem.</strong> Financial events recur, while their drivers and economic conditions change.</li>
+      <li><strong>The approach.</strong> ReFoRM reuses past reasoning paths and checks each relationship against current evidence.</li>
+      <li><strong>The result.</strong> Forecasts become more accurate, with better probability estimates across five model families.</li>
+    </ul>
+    <details class="reading-details"><summary>Read the full abstract</summary>
     <p class="prose abstract">Forecasting real-world events requires reasoning under uncertainty from information available at a fixed cutoff. Recent work has improved how large language models (LLMs) retrieve evidence and produce probabilistic forecasts, but each question is treated independently even when similar events recur. Resolved occurrences carry experience for later forecasts, yet past outcomes and case summaries do not preserve the relationships that made an earlier occurrence informative. We develop ReFoRM (Recurrent-event Forecasting with Reasoning Memory), which organizes reasoning from resolved events into predictive paths, retrieves relevant paths for a later occurrence, and reconstructs their relations using evidence at the new forecast cutoff. We evaluate ReFoRM on the Recurring Financial Events Set, which contains 300 questions across 40 recurring financial event families and uses earlier occurrences as hindsight for 100 forecast targets. Across five LLMs and six baselines, ReFoRM improves categorical and probabilistic forecasting performance. Further analyses show that validating historical relations with current evidence and reconstructing them enhances forecasting. Reasoning evaluation also demonstrates stronger evidence grounding, logical validity, and mechanism specificity.</p>
+    </details>
   </section>
 
   <section class="section" id="benchmark" aria-labelledby="benchmark-h">
     <h2 class="section-title" id="benchmark-h">Recurring Financial Events</h2>
-    <p class="prose">Many financial questions recur. Firms report quarterly results, statistical agencies publish the same indicators, and central banks revisit policy decisions on regular schedules. Each resolved occurrence reveals which factors mattered, how they interacted, and through which channels they affected the target. These relationships can guide the next forecast as long as they are checked again against the evidence available at that time.</p>
+    <p class="prose">Earnings, inflation reports, and policy decisions return on a schedule. The benchmark groups comparable occurrences into families, so earlier events can inform later forecasts.</p>
+    <dl class="benchmark-summary is-mid"><div><dt>300</dt><dd>financial questions</dd></div><div><dt>40</dt><dd>recurring event families</dd></div><div><dt>100</dt><dd>forecast targets</dd></div></dl>
+    <details class="reading-details is-mid"><summary>Explore the benchmark, data sources, and chronological split</summary>
+
 <figure class="figure figure-side is-mid">
       <a class="plate" href="assets/fig-motivation.webp" target="_blank" rel="noopener" aria-label="Open Figure 1 at full size"><img src="assets/fig-motivation.webp" width="963" height="713" alt="Conventional forecasting treats questions on politics, weather, and sports as one-off tasks. A recurring financial event, such as Walmart's quarterly revenue growth, has resolved occurrences in Q1 to Q3 whose reasoning structure is re-evaluated with current evidence for the unresolved Q4." loading="lazy"></a>
       <figcaption><b>Motivation from resolved events.</b> The same outcome can arise from different reasoning paths. Relationships from resolved recurring events help distinguish supported from unsupported reasoning in new instances.</figcaption>
@@ -133,37 +154,15 @@
       </div>
       <figcaption id="split-caption"><b>Chronological split within each family.</b> The split is chronological within each family, so every target has five resolved cases from its own family. Questions from the same release stay on the same side of the split, and target outcomes are never supplied to any method.</figcaption>
     </figure>
+
+    </details>
   </section>
 
   <section class="section" id="method" aria-labelledby="method-h">
     <h2 class="section-title" id="method-h">Method</h2>
-<p class="prose">ReFoRM adapts structures from resolved recurring events in four stages. It constructs hindsight graphs, uses their factors to retrieve current evidence, selects and reconstructs relevant paths under that evidence, and produces a probabilistic forecast. Resolved events can therefore guide a new forecast without treating their outcomes or premises as facts about the target occurrence.</p>
-<ol class="stages prose">
-      <li>
-        <h3>Hindsight graph construction</h3>
-        <p>For each earlier occurrence in the same family that resolved before the forecast cutoff, ReFoRM builds a graph of factors, predictive relations, and supporting sources from documents available by its resolution. Each graph is reduced to complete root-to-target paths and the conditions under which they apply or fail. Resolved answers, realized values, and historical probabilities are removed.</p>
-      </li>
-      <li>
-        <h3>Retrieving current evidence</h3>
-        <p>Factors in the hindsight graphs guide the search for evidence available before the cutoff, while historical relations, answers, and probabilities stay hidden. The retrieved documents form an evidence ledger that records the target operation, usable baseline, observed signals, supporting sources, and missing information.</p>
-      </li>
-      <li>
-        <h3>Path retrieval and reconstruction</h3>
-        <p>Complete paths that match the ledger are retrieved intact, so each relation stays connected to its surrounding factors. Every relation is then assessed against current evidence instead of being assumed to hold.</p>
-        <dl class="states">
-          <div><dt><i class="dot dot-preserved"></i>Preserved</dt><dd>Current evidence supports the same effect.</dd></div>
-          <div><dt><i class="dot dot-reversed"></i>Reversed</dt><dd>Current evidence supports the opposite effect.</dd></div>
-          <div><dt><i class="dot dot-contradicted"></i>Contradicted</dt><dd>The original relation fails without establishing its opposite.</dd></div>
-          <div><dt><i class="dot dot-unverified"></i>Unverified</dt><dd>Evidence is insufficient to decide.</dd></div>
-        </dl>
-        <p>Paths become active, contradicted, or unresolved according to these assessments. Reconstruction may remain partial, and current evidence always takes precedence over historical structure.</p>
-      </li>
-      <li>
-        <h3>Forecasting with the current structure</h3>
-        <p>The reconstructed structure and the evidence ledger produce a reasoning trace before any option is chosen. Low, central, and high estimates in the target unit are mapped to the public answer boundaries to give the forecast distribution, and weak magnitude support leads to a less concentrated forecast. Historical probabilities are not reused, and no post-hoc calibration is applied.</p>
-      </li>
-    </ol>
-    <p class="prose">The example below follows these stages for a single question. The 2023 meeting plays the role of the resolved occurrence, and the September 2024 meeting is the new target.</p>
+<p class="prose">Start with resolved events, gather current evidence, test the historical relationships, and use the supported paths to forecast the next occurrence.</p>
+<ol class="method-outline is-wide"><li><span>01</span><h3>Build memory</h3><p>Keep the factors and relationships from resolved events.</p></li><li><span>02</span><h3>Gather evidence</h3><p>Retrieve sources available before the new forecast cutoff.</p></li><li><span>03</span><h3>Test relationships</h3><p>Preserve, reverse, contradict, or leave a relation unverified.</p></li><li><span>04</span><h3>Forecast</h3><p>Use supported paths to estimate the new outcome.</p></li></ol>
+    <p class="prose method-instruction">Step through the Fed example. Hover over a factor or graph link to compare its evidence; on a touch screen, tap a factor.</p>
     <div class="example is-wide" id="example">
       <div class="example-panel">
       <div class="example-head">
@@ -228,6 +227,7 @@
           <h3 id="evidence-title">Inflation trend</h3>
           <p class="evidence-assessment" id="evidence-assessment"></p>
         </div>
+        <div class="relation-comparison"><div><span>PAST CONTRIBUTION</span><strong id="relation-before">Supports easing (+)</strong></div><span class="relation-compare-arrow" aria-hidden="true">→</span><div><span>CURRENT CONTRIBUTION</span><strong id="relation-after">Awaiting assessment</strong></div><p id="relation-change" role="status"></p></div>
         <div class="evidence-cols">
           <div>
             <h4>Evidence in September 2023</h4>
@@ -242,8 +242,35 @@
         </div>
       </div>
     </div>
-      <p class="example-caption"><b>Worked example.</b> Assembled by hand from public Federal Reserve sources to illustrate the procedure. It is not a model output. Step through the stages, and select a factor to compare its evidence.</p>
+      <p class="example-caption">Fed example · Public Federal Reserve sources · Illustrates relation reconstruction.</p>
     </div>
+    <details class="reading-details"><summary>Read the full four-stage methodology</summary>
+<ol class="stages prose">
+      <li>
+        <h3>Hindsight graph construction</h3>
+        <p>For each earlier occurrence in the same family that resolved before the forecast cutoff, ReFoRM builds a graph of factors, predictive relations, and supporting sources from documents available by its resolution. Each graph is reduced to complete root-to-target paths and the conditions under which they apply or fail. Resolved answers, realized values, and historical probabilities are removed.</p>
+      </li>
+      <li>
+        <h3>Retrieving current evidence</h3>
+        <p>Factors in the hindsight graphs guide the search for evidence available before the cutoff, while historical relations, answers, and probabilities stay hidden. The retrieved documents form an evidence ledger that records the target operation, usable baseline, observed signals, supporting sources, and missing information.</p>
+      </li>
+      <li>
+        <h3>Path retrieval and reconstruction</h3>
+        <p>Complete paths that match the ledger are retrieved intact, so each relation stays connected to its surrounding factors. Every relation is then assessed against current evidence instead of being assumed to hold.</p>
+        <dl class="states">
+          <div><dt><i class="dot dot-preserved"></i>Preserved</dt><dd>Current evidence supports the same effect.</dd></div>
+          <div><dt><i class="dot dot-reversed"></i>Reversed</dt><dd>Current evidence supports the opposite effect.</dd></div>
+          <div><dt><i class="dot dot-contradicted"></i>Contradicted</dt><dd>The original relation fails without establishing its opposite.</dd></div>
+          <div><dt><i class="dot dot-unverified"></i>Unverified</dt><dd>Evidence is insufficient to decide.</dd></div>
+        </dl>
+        <p>Paths become active, contradicted, or unresolved according to these assessments. Reconstruction may remain partial, and current evidence always takes precedence over historical structure.</p>
+      </li>
+      <li>
+        <h3>Forecasting with the current structure</h3>
+        <p>The reconstructed structure and the evidence ledger produce a reasoning trace before any option is chosen. Low, central, and high estimates in the target unit are mapped to the public answer boundaries to give the forecast distribution, and weak magnitude support leads to a less concentrated forecast. Historical probabilities are not reused, and no post-hoc calibration is applied.</p>
+      </li>
+    </ol>
+    </details>
   </section>
 
   <section class="section" id="results" aria-labelledby="results-h">
@@ -356,6 +383,11 @@
 
   <section class="section" id="analysis" aria-labelledby="analysis-h">
     <h2 class="section-title" id="analysis-h">Reasoning Analysis</h2>
+    <p class="prose">ReFoRM produces reasoning with stronger evidence grounding and more specific explanations of how factors affect the forecast.</p>
+    <div class="analysis-summary is-mid"><div><strong>56.4%</strong><span>Verified reasoning relations</span><p>The highest share among the seven methods.</p></div><div><strong>3.73 <small>/ 5</small></strong><span>Mean reasoning score</span><p>Compared with 2.86–3.17 for the six baselines.</p></div></div>
+    <p class="prose analysis-scope">Reasoning ratings cover one Gemini 2.5 Flash Lite run and serve as supporting evidence.</p>
+    <details class="reading-details is-wide"><summary>Explore the reasoning evaluation, scores, and reconstruction analysis</summary>
+
 <p class="prose">Forecasting scores do not show whether a prediction follows from valid reasoning. After each target resolves, we build a reference graph from post-resolution documents, used only for analysis. Each reasoning trace is decomposed into atomic relations that a blinded judge checks against this graph. ReFoRM has the highest share of verified relations at 56.4%, compared with 50.0% for Factor Memory and 33.6% for Structure Memory, the two strongest baselines on this measure.</p>
     <p class="prose">A separate LLM judge rated all 700 traces from one Gemini 2.5 Flash Lite run on five dimensions, without seeing the outcome or the forecasting scores. ReFoRM has the highest mean on every dimension, and none of its correct forecasts rests on a trace scored at or below 2.5. These scores are not ground truth and cover one model and one seed, so they serve as supporting evidence.</p>
 
@@ -391,11 +423,13 @@
       </div>
       <figcaption><b>Brier reduction by assessment profile.</b> Reduction of ReFoRM relative to Direct Forecast across five models from a single run. Supported structures have preserved but no changed relations, mixed structures have both, and unresolved structures have neither.</figcaption>
     </figure>
+
+    </details>
   </section>
 
   <section class="section" id="cases" aria-labelledby="cases-h">
     <h2 class="section-title" id="cases-h">Case Studies</h2>
-<p class="prose">Two target occurrences under the same question and current evidence. In the first, evaluating the transferred relations changes the predicted interval. In the second, both methods select the same interval, but only ReFoRM states which driver is established and where the bridge to the target remains unverified.</p>
+<p class="prose">See how relation reconstruction changes the predicted interval for U.S. CPI and clarifies the remaining uncertainty for Walmart revenue growth.</p>
 
     <div class="segmented case-tabs" role="tablist" aria-label="Case studies">
       <button type="button" role="tab" id="case-tab-cpi" aria-controls="case-cpi" aria-selected="true">June 2025 U.S. CPI</button>
@@ -488,18 +522,7 @@
     </article>
   </section>
 
-  <section class="section" id="collaboration" aria-labelledby="collaboration-h">
-    <h2 class="section-title" id="collaboration-h">Collaboration</h2>
-    <div class="collab-card">
-      <img src="assets/kakaobank-symbol-black.png" alt="KakaoBank" width="48" height="60">
-      <div>
-        <p class="collab-card-lead">This research was conducted in collaboration with KakaoBank.</p>
-        <p>KakaoBank researchers Daehee Han, Seonghun Jeong, and Youngjun Kwak are co-authors of the paper. Daehee Han is an equal-contribution first author, and Youngjun Kwak is a co-corresponding author.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="citation" aria-labelledby="citation-h">
+<section class="section" id="citation" aria-labelledby="citation-h">
     <h2 class="section-title" id="citation-h">Citation</h2>
 <div class="bibtex">
       <pre id="bibtex" tabindex="0">@article{jin2026hindsight,
@@ -516,7 +539,7 @@
 </main>
 
 <footer class="site-footer">
-  <p class="footer-collab"><img src="assets/kakaobank-symbol-black.png" alt="" width="14" height="18">ReFoRM is a research collaboration between UNIST and KakaoBank.</p>
+  <p>ReFoRM · From Hindsight to Foresight</p>
   <p class="footer-links"><a href="paper.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/jinsaaang/reform" target="_blank" rel="noopener">Code</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7475378" target="_blank" rel="noopener">SSRN</a><a href="https://icaif2026.org/" target="_blank" rel="noopener">ICAIF 2026</a><a href="#top">Back to top</a></p>
 </footer>
 </body>
