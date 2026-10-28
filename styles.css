@@ -64,7 +64,7 @@ sup {font-size:.65em;color:var(--accent);margin-left:2px}
 .masthead-actions .primary:hover {background:linear-gradient(125deg,#1c3e91,#2477db);box-shadow:0 14px 30px -12px #2863d890}
 .masthead-credits {border-top:1px solid var(--line);margin-top:40px;padding-top:21px}
 .research-collaboration {display:flex;align-items:center;gap:13px;margin-top:17px;color:#475b75;font-size:14px;line-height:1.6}
-.research-collaboration img {display:block;width:28px;height:35px;object-fit:contain;flex-shrink:0}
+.research-collaboration img {display:block;width:auto;height:16px;object-fit:contain;flex-shrink:0}
 .research-collaboration p {margin:0}
 .research-collaboration strong {color:var(--ink);font-weight:600}
 .credit-details {margin-top:8px;color:#526474;font-size:12px}
