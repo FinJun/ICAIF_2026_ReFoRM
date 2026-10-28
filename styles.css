@@ -28,7 +28,8 @@ sup {font-size:.65em;color:var(--accent);margin-left:2px}
 .site-header {height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1360px,calc(100% - 96px));margin:auto;border-bottom:1px solid var(--line)}
 .wordmark {display:inline-flex;align-items:center;font-weight:700;font-size:28px;letter-spacing:-1.2px;line-height:1}
 .wordmark-dot {color:var(--accent)}
-.brand-symbol {display:grid;place-items:center;color:var(--accent);border:1.5px solid var(--accent);width:30px;height:30px;border-radius:50%;font-size:23px;font-weight:450;margin-right:10px}
+.brand-symbol {display:grid;place-items:center;color:var(--accent);background:#e1f0e9;width:30px;height:30px;border-radius:8px;margin-right:10px}
+.brand-symbol svg {width:22px;height:22px;stroke-width:1.8}
 .site-header nav {display:flex;gap:28px;font-size:16px;color:var(--muted)}
 .site-header nav a:hover,.source-link:hover {color:var(--accent);text-decoration:underline;text-underline-offset:5px}
 .paper-link {font-size:16px;font-weight:550;display:flex;align-items:center;gap:15px}
@@ -549,7 +550,7 @@ caption {text-align:left;white-space:normal;font-size:14px;padding:10px 0}
   body {font-size:17px}
   .wrap,.site-header {width:calc(100% - 40px)}
   .wordmark {font-size:26px}
-  .brand-symbol {width:27px;height:27px;font-size:22px}
+  .brand-symbol {width:27px;height:27px}
   .paper-link {font-size:15px;gap:10px}
   .paper-masthead {padding-block:34px 35px;text-align:left}
   .paper-masthead .eyebrow {font-size:12px}
